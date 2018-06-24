@@ -7,5 +7,17 @@
     tools:context=".MainActivity"
     android:orientation="vertical">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="HOLA MUNDO MUNDIAL"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="HOLA MUNDO MUNDIAL"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:text="HOLA MUNDO MUNDIAL"/>
 
 </LinearLayout>
