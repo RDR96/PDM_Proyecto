@@ -84,7 +84,6 @@ public class ViewPager extends Fragment {
         viewPager.setAdapter(adapter);
     }
 
-
     @Override
     public void onDestroyView() {
         super.onDestroyView();
@@ -103,7 +102,6 @@ public class ViewPager extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
-
     }
 
 }
