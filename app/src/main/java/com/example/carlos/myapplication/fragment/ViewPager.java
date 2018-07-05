@@ -44,7 +44,7 @@ public class ViewPager extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        vista=inflater.inflate(R.layout.fragment_view_pager, container, false);
+        vista=inflater.inflate(R.layout.view_pager, container, false);
 
         if(Util.rotacion==0){
             View parent= (View) container.getParent();
