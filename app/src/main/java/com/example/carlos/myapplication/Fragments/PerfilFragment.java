@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.example.carlos.myapplication.R;
-import com.example.carlos.myapplication.Activities.FavoritosActivity;
+import com.example.carlos.myapplication.Activities.CancionesFavoritasActivity;
 
 /**
  * Created by Deryan Cruz on 6/23/2018.
@@ -44,7 +44,7 @@ public class PerfilFragment extends Fragment{
         fav.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                levantaPantallas = new Intent(v.getContext(), FavoritosActivity.class);
+                levantaPantallas = new Intent(v.getContext(), CancionesFavoritasActivity.class);
                 v.getContext().startActivity(levantaPantallas);
             }
         });

@@ -27,7 +27,6 @@ public class ViewPager extends Fragment {
     private TabLayout pestanas;
     private android.support.v4.view.ViewPager viewPager;
     private static String dato;
-    public static int position = 0;
 
     public ViewPager() {
     }
@@ -58,8 +57,6 @@ public class ViewPager extends Fragment {
                 appBar.addView(pestanas);
 
                 viewPager=  vista.findViewById(R.id.idViewPagerInformacion);
-
-                viewPager.setCurrentItem(position);
 
                 llenarViewPager(viewPager);
                 viewPager.addOnPageChangeListener(new android.support.v4.view.ViewPager.SimpleOnPageChangeListener(){

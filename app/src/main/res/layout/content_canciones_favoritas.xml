@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
-    tools:context="com.example.carlos.myapplication.Activities.FavoritosActivity"
-    tools:showIn="@layout/activity_favoritos">
+    tools:context="com.example.carlos.myapplication.Activities.CancionesFavoritasActivity"
+    tools:showIn="@layout/activity_canciones_favoritas">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -48,24 +48,25 @@
                 app:layout_constraintEnd_toEndOf="@+id/banner_fav"
                 app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="@+id/banner_fav" />
+                app:layout_constraintTop_toTopOf="@+id/banner_fav"
+                app:layout_constraintVertical_bias="0.19" />
 
             <TextView
                 android:id="@+id/cantidad_canciones"
                 android:layout_width="wrap_content"
-                android:layout_height="23dp"
+                android:layout_height="19dp"
                 android:layout_marginBottom="8dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginStart="8dp"
                 android:layout_marginTop="8dp"
                 android:text="670 canciones"
                 android:textColor="@color/accent"
-                android:textSize="14sp"
+                android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/label_fav"
-                app:layout_constraintVertical_bias="0.51" />
+                app:layout_constraintVertical_bias="0.0" />
 
 
 
