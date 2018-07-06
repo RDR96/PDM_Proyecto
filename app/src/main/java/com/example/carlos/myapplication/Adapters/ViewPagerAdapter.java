@@ -1,4 +1,4 @@
-package com.example.carlos.myapplication.adapter;
+package com.example.carlos.myapplication.Adapters;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -11,11 +11,11 @@ import java.util.List;
  * Created by Deryan Cruz on 6/23/2018.
  */
 
-public class ViewPagerSectionsAdapter extends FragmentStatePagerAdapter {
+public class ViewPagerAdapter extends FragmentStatePagerAdapter {
     private final List<Fragment> listaFragments=new ArrayList<>();
     private final List<String> listaTitulos=new ArrayList<>();
 
-    public ViewPagerSectionsAdapter(FragmentManager fm) {
+    public ViewPagerAdapter(FragmentManager fm) {
         super(fm);
     }
 

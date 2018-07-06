@@ -1,13 +1,10 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:theme="@style/ThemeOverlay.AppCompat.Dark"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:id="@+id/fragment_perfil"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#fff"
     android:orientation="vertical">
 
 
@@ -15,7 +12,6 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:background="#fff"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintTop_toTopOf="@+id/linearLayout">
 
@@ -24,9 +20,8 @@
             android:id="@+id/portada"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:alpha="0.7"
             android:scaleType="fitXY"
-            app:layout_constraintBottom_toTopOf="@+id/linearLayout"
+            app:layout_constraintBottom_toBottomOf="@+id/linearLayout"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/linearLayout"
@@ -36,7 +31,6 @@
             android:id="@+id/linearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
             android:layout_marginTop="8dp"
             android:background="@color/colorPrimary"
             android:gravity="right"
@@ -49,7 +43,7 @@
 
             <View
                 android:layout_width="0dp"
-                android:layout_height="30dp"
+                android:layout_height="50dp"
                 android:layout_weight="1" />
 
             <LinearLayout
@@ -63,21 +57,28 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground">
 
                     <ImageView
+                        android:layout_marginTop="4dp"
                         android:id="@+id/chat"
                         android:layout_width="25dp"
                         android:layout_height="0dp"
                         android:layout_weight="1"
                         android:scaleType="fitXY"
-                        android:src="@drawable/ic_mode_comment_black_24dp" />
+                        android:src="@drawable/ic_perfil_chat_button_chat" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_weight="1"
-                        android:text="Chat" />
+                        android:text="Chat"
+                        android:textSize="10dp"
+                        android:gravity="center"
+                        android:textColor="#ffffff"
+                        />
 
                 </LinearLayout>
 
@@ -86,21 +87,29 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground">
 
                     <ImageView
+                        android:layout_marginTop="3dp"
                         android:id="@+id/muro"
                         android:layout_width="25dp"
                         android:layout_height="0dp"
                         android:layout_weight="1"
                         android:scaleType="fitXY"
-                        android:src="@drawable/ic_audiotrack_black_24dp" />
+                        android:src="@drawable/ic_perfil_tu_concierto_button_tickets" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_weight="1"
-                        android:text="Muro" />
+                        android:text="Tu concierto"
+                        android:textSize="10dp"
+                        android:gravity="center"
+                        android:textColor="#ffffff"
+
+                        />
 
                 </LinearLayout>
 
@@ -109,23 +118,30 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground">
 
                     <ImageView
+                        android:layout_marginTop="3dp"
+
                         android:id="@+id/ajustes"
                         android:layout_width="25dp"
                         android:layout_height="0dp"
                         android:layout_weight="1"
-                        android:background="@drawable/ic_settings_black_24dp"
                         android:scaleType="fitXY"
-                        app:srcCompat="@drawable/ic_settings_black_24dp"
+                        app:srcCompat="@drawable/ic_perfil_settings_button_settings"
                         tools:ignore="VectorDrawableCompat" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:layout_weight="1"
-                        android:text="Ajustes" />
+                        android:text="Ajustes"
+                        android:textSize="10dp"
+                        android:gravity="center"
+                        android:textColor="#ffffff"
+                        />
 
                 </LinearLayout>
 
@@ -136,6 +152,7 @@
         </LinearLayout>
 
         <ImageView
+            android:background="@drawable/image_border"
             android:id="@+id/foto_de_perfil"
             android:layout_width="150dp"
             android:layout_height="150dp"
@@ -157,20 +174,22 @@
 
         <TextView
             android:id="@+id/nombre_de_persona"
-            android:layout_width="150dp"
+            android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
+            android:layout_marginLeft="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:text="Nombre de la persona"
             android:textColor="@color/cardview_light_background"
-            android:textSize="24sp"
+            android:textSize="16sp"
             android:textStyle="bold"
             app:layout_constraintBottom_toTopOf="@+id/linearLayout"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.12"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/foto_de_perfil"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.96" />
+            app:layout_constraintVertical_bias="0.875" />
 
 
     </android.support.constraint.ConstraintLayout>
@@ -182,13 +201,12 @@
         android:orientation="vertical">
 
         <android.support.v7.widget.CardView
-
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            app:cardUseCompatPadding="true"
-            app:elevation="8dp"
-            app:cardBackgroundColor="@color/cardview_light_background">
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+            >
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -197,20 +215,33 @@
                 >
 
                 <ImageView
+                    android:layout_marginLeft="10dp"
                     android:layout_width="40dp"
-                    android:layout_height="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
                     android:src="@drawable/ic_favorite_black_24dp" />
+
 
                 <TextView
                     android:id="@+id/canciones_favoritas"
                     android:textAlignment="textStart"
                     android:layout_width="match_parent"
+                    android:layout_weight="1"
                     android:layout_height="match_parent"
                     android:textColor="#000"
-                    android:textSize="18sp"
+                    android:textSize="15sp"
+                    android:textStyle="normal"
                     android:gravity="center"
                     android:text="Canciones Favoritas"
                     tools:ignore="RtlCompat" />
+
+                <ImageView
+                    android:layout_marginRight="15dp"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_arrow_forward_black_24dp"
+                    android:layout_gravity="center"
+                    />
 
             </LinearLayout>
 
@@ -220,9 +251,8 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            app:cardUseCompatPadding="true"
-            app:elevation="8dp"
-            app:cardBackgroundColor="@color/cardview_light_background">
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -230,9 +260,11 @@
                 android:orientation="horizontal"
                 >
                 <ImageView
+                    android:layout_marginLeft="10dp"
                     android:layout_width="40dp"
+                    android:layout_gravity="center"
                     android:layout_height="match_parent"
-                    android:src="@drawable/ic_library_music_black_24dp" />
+                    android:src="@drawable/ic_perfil_mis_canciones_button_microfono" />
 
                 <TextView
                     android:id="@+id/mis_canciones"
@@ -240,10 +272,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:textColor="#000"
-                    android:textSize="18sp"
+                    android:textSize="15sp"
                     android:gravity="center"
                     android:text="Mis Canciones"
-                    tools:ignore="RtlCompat" />
+                    tools:ignore="RtlCompat"
+                    android:layout_weight="1"/>
+
+                <ImageView
+                    android:layout_marginRight="15dp"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_arrow_forward_black_24dp"
+                    android:layout_gravity="center"
+                    />
 
             </LinearLayout>
 
@@ -253,9 +294,8 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            app:cardUseCompatPadding="true"
-            app:elevation="8dp"
-            app:cardBackgroundColor="@color/cardview_light_background">
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -263,9 +303,11 @@
                 android:orientation="horizontal"
                 >
                 <ImageView
+                    android:layout_marginLeft="10dp"
                     android:layout_width="40dp"
-                    android:layout_height="match_parent"
-                    android:src="@drawable/ic_album_black_24dp" />
+                    android:layout_height="30dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_perfil_albumes_button_disco" />
 
                 <TextView
                     android:id="@+id/albums"
@@ -273,10 +315,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:textColor="#000"
-                    android:textSize="18sp"
+                    android:textSize="15sp"
                     android:gravity="center"
-                    android:text="Albums"
-                    tools:ignore="RtlCompat" />
+                    android:text="Albumes"
+                    tools:ignore="RtlCompat"
+                    android:layout_weight="1"/>
+
+                <ImageView
+                    android:layout_marginRight="15dp"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_arrow_forward_black_24dp"
+                    android:layout_gravity="center"
+                    />
 
             </LinearLayout>
 
@@ -286,9 +337,8 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            app:cardUseCompatPadding="true"
-            app:elevation="8dp"
-            app:cardBackgroundColor="@color/cardview_light_background">
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -298,6 +348,7 @@
 
                 <ImageView
                     android:layout_width="40dp"
+                    android:layout_marginLeft="10dp"
                     android:layout_height="match_parent"
                     android:src="@drawable/ic_playlist_play_black_24dp" />
 
@@ -307,10 +358,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:textColor="#000"
-                    android:textSize="18sp"
+                    android:textSize="15sp"
                     android:gravity="center"
                     android:text="Playlists"
-                    tools:ignore="RtlCompat" />
+                    tools:ignore="RtlCompat"
+                    android:layout_weight="1"/>
+
+                <ImageView
+                    android:layout_marginRight="15dp"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_arrow_forward_black_24dp"
+                    android:layout_gravity="center"
+                    />
 
             </LinearLayout>
 
@@ -320,20 +380,23 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            app:cardUseCompatPadding="true"
-            app:elevation="8dp"
-            app:cardBackgroundColor="@color/cardview_light_background">
+            android:clickable="true"
+            android:foreground="?android:attr/selectableItemBackground"
+          >
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal"
+                android:clickable="true"
+                android:foreground="?android:attr/selectableItemBackground"
                 >
 
                 <ImageView
-                    android:layout_width="40dp"
+                    android:layout_width="36dp"
                     android:layout_height="match_parent"
-                    android:src="@drawable/artistas" />
+                    android:layout_marginLeft="10dp"
+                    android:src="@drawable/ic_perfil_artistas_button_artista" />
 
                 <TextView
                     android:id="@+id/artistas"
@@ -341,10 +404,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:textColor="#000"
-                    android:textSize="18sp"
+                    android:textSize="15sp"
                     android:gravity="center"
                     android:text="Artistas"
-                    tools:ignore="RtlCompat" />
+                    tools:ignore="RtlCompat"
+                    android:layout_weight="1"/>
+
+                <ImageView
+                    android:layout_marginRight="15dp"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_arrow_forward_black_24dp"
+                    android:layout_gravity="center"
+                    />
 
             </LinearLayout>
 

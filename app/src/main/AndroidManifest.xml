@@ -9,19 +9,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
-            android:name=".MainActivity"
-            android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize">
+            android:name=".Activities.MainActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize"
+            android:launchMode="singleTop"
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".activity.FavoritosActivity"
-            android:label="@string/title_activity_favoritos"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-    </application>
 
+        <activity
+            android:name=".Activities.FavoritosActivity"
+            android:label="@string/title_activity_favoritos"
+            android:windowSoftInputMode="adjustNothing"
+            android:parentActivityName=".Activities.MainActivity"
+            ></activity>
+
+    </application>
 </manifest>

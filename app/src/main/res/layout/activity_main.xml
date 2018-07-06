@@ -2,9 +2,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".MainActivity">
+    tools:context=".Activities.MainActivity">
 
-    <include layout="@layout/app_bar_main" />
+    <include layout="@layout/content_main" />
 
 
 </LinearLayout>

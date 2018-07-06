@@ -1,4 +1,4 @@
-package com.example.carlos.myapplication.fragment;
+package com.example.carlos.myapplication.Fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -12,10 +12,10 @@ import com.example.carlos.myapplication.R;
  * Created by Deryan Cruz on 6/23/2018.
  */
 
-public class BuscarFragment extends Fragment {
+public class InicioFragment extends Fragment{
     private View view;
 
-    public BuscarFragment() {
+    public InicioFragment() {
     }
 
     @Override
