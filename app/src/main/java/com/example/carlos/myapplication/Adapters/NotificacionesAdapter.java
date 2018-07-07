@@ -13,11 +13,11 @@ import com.example.carlos.myapplication.R;
 
 import java.util.ArrayList;
 
-public class RecylerViewAdapter extends RecyclerView.Adapter<RecylerViewAdapter.ViewHolder> {
+public class NotificacionesAdapter extends RecyclerView.Adapter<NotificacionesAdapter.ViewHolder> {
 
     ArrayList<Notificaciones> listDatos;
 
-    public RecylerViewAdapter(ArrayList<Notificaciones> listDatos) {
+    public NotificacionesAdapter(ArrayList<Notificaciones> listDatos) {
         this.listDatos = listDatos;
     }
 
@@ -30,7 +30,7 @@ public class RecylerViewAdapter extends RecyclerView.Adapter<RecylerViewAdapter.
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecylerViewAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull NotificacionesAdapter.ViewHolder holder, int position) {
 
         holder.etiqueta.setText(listDatos.get(position).getEtiqueta());
         holder.usuario.setText(listDatos.get(position).getUsuario());

@@ -8,7 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.carlos.myapplication.Adapters.RecylerViewAdapter;
+import com.example.carlos.myapplication.Adapters.NotificacionesAdapter;
 import com.example.carlos.myapplication.Objects.Notificaciones;
 import com.example.carlos.myapplication.R;
 
@@ -37,7 +37,7 @@ public class NotificacionesFragment extends Fragment {
 
         llenarLista();
 
-        RecylerViewAdapter adapter = new RecylerViewAdapter(listDatos);
+        NotificacionesAdapter adapter = new NotificacionesAdapter(listDatos);
         recyclerViewNotificaciones.setAdapter(adapter);
 
         return view;
