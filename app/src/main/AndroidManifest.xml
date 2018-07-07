@@ -32,7 +32,10 @@
         <activity
             android:name=".Activities.AlbumesActivity"
             android:label="@string/title_activity_albumes"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:windowSoftInputMode="adjustNothing">
+
+        </activity>
     </application>
 
 </manifest>

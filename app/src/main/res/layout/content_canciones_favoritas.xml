@@ -30,7 +30,8 @@
                 android:scaleType="fitCenter"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/ic_favorite_black_24dp" />
+                app:srcCompat="@drawable/ic_favorite_black_24dp"
+                tools:ignore="VectorDrawableCompat" />
 
             <TextView
                 android:id="@+id/label_fav"
@@ -43,7 +44,7 @@
                 android:gravity="center"
                 android:text="Mis Favoritas"
                 android:textColor="@color/accent"
-                android:textSize="25sp"
+                android:textSize="20sp"
                 app:layout_constraintBottom_toBottomOf="@+id/banner_fav"
                 app:layout_constraintEnd_toEndOf="@+id/banner_fav"
                 app:layout_constraintHorizontal_bias="0.497"
@@ -79,7 +80,6 @@
             android:layout_weight="0.5"
             android:layout_marginBottom="8dp"
             android:gravity="center"
-
             android:orientation="horizontal"
             tools:layout_editor_absoluteX="8dp">
 
