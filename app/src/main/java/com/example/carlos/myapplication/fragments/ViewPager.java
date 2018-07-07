@@ -1,4 +1,4 @@
-package com.example.carlos.myapplication.Fragments;
+package com.example.carlos.myapplication.fragments;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -11,8 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.carlos.myapplication.R;
-import com.example.carlos.myapplication.Adapters.ViewPagerAdapter;
-import com.example.carlos.myapplication.Util.Util;
+import com.example.carlos.myapplication.adapters.ViewPagerAdapter;
+import com.example.carlos.myapplication.util.Util;
 
 /**
  * Created by Deryan Cruz on 6/22/2018.

@@ -1,4 +1,4 @@
-package com.example.carlos.myapplication.Adapters;
+package com.example.carlos.myapplication.adapters;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.carlos.myapplication.Objects.Notificaciones;
+import com.example.carlos.myapplication.objects.Notificaciones;
 import com.example.carlos.myapplication.R;
 
 import java.util.ArrayList;

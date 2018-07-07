@@ -1,4 +1,4 @@
-package com.example.carlos.myapplication.Fragments;
+package com.example.carlos.myapplication.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,8 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.carlos.myapplication.Adapters.InicioAdapter;
-import com.example.carlos.myapplication.Objects.Inicio;
+import com.example.carlos.myapplication.adapters.InicioAdapter;
+import com.example.carlos.myapplication.objects.Inicio;
 import com.example.carlos.myapplication.R;
 
 import java.util.ArrayList;

@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Activities.MainActivity"
+            android:name=".activities.MainActivity"
             android:configChanges="orientation|keyboardHidden|screenSize|smallestScreenSize"
             android:launchMode="singleTop">
             <intent-filter>
@@ -20,22 +20,26 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Activities.CancionesFavoritasActivity"
-            android:label="@string/title_activity_favoritos"
-            android:parentActivityName=".Activities.MainActivity"
+            android:name=".activities.CancionesFavoritasActivity"
+            android:parentActivityName=".activities.MainActivity"
+            android:label="Mis Favoritas"
             android:windowSoftInputMode="adjustNothing" />
         <activity
-            android:name=".Activities.MisCancionesActivity"
-            android:label="@string/title_activity_mis_canciones"
-            android:parentActivityName=".Activities.MainActivity"
+            android:name=".activities.MisCancionesActivity"
+            android:parentActivityName=".activities.MainActivity"
+            android:label="Mis Canciones"
             android:windowSoftInputMode="adjustNothing" />
         <activity
-            android:name=".Activities.AlbumesActivity"
-            android:label="@string/title_activity_albumes"
+            android:name=".activities.AlbumesActivity"
+            android:label="Albumes"
+            android:parentActivityName=".activities.MainActivity"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustNothing">
-
-        </activity>
+            android:windowSoftInputMode="adjustNothing"/>
+        <activity
+            android:name=".activities.PlaylistActivity"
+            android:parentActivityName=".activities.MainActivity"
+            android:label="Playlist"
+            android:theme="@style/AppTheme.NoActionBar"/>
     </application>
 
 </manifest>

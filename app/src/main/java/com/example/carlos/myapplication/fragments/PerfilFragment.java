@@ -1,4 +1,4 @@
-package com.example.carlos.myapplication.Fragments;
+package com.example.carlos.myapplication.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,10 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.support.v7.widget.CardView;
 
-import com.example.carlos.myapplication.Activities.AlbumesActivity;
-import com.example.carlos.myapplication.Activities.MisCancionesActivity;
+import com.example.carlos.myapplication.activities.AlbumesActivity;
+import com.example.carlos.myapplication.activities.MisCancionesActivity;
+import com.example.carlos.myapplication.activities.PlaylistActivity;
 import com.example.carlos.myapplication.R;
-import com.example.carlos.myapplication.Activities.CancionesFavoritasActivity;
+import com.example.carlos.myapplication.activities.CancionesFavoritasActivity;
 
 /**
  * Created by Deryan Cruz on 6/23/2018.
@@ -24,6 +25,7 @@ public class PerfilFragment extends Fragment{
     private CardView fragmentPerfilCancionesFavoritasButton;
     private CardView fragmentPerfilMisCancionesButton;
     private CardView fragmentPerfilAlbumesButton;
+    private CardView fragmentPerfilPlaylists;
     private Intent levantaPantallas;
     //Fin
 
@@ -43,6 +45,7 @@ public class PerfilFragment extends Fragment{
         fragmentPerfilCancionesFavoritasButton = view.findViewById(R.id.fragment_perfil_canciones_favoritas_button);
         fragmentPerfilMisCancionesButton = view.findViewById(R.id.fragment_perfil_mis_canciones_button);
         fragmentPerfilAlbumesButton = view.findViewById(R.id.fragment_perfil_albumes_button);
+        fragmentPerfilPlaylists = view.findViewById(R.id.fragment_perfil_playlists_button);
         iniciarEventos();
     }
 
@@ -71,6 +74,13 @@ public class PerfilFragment extends Fragment{
             }
         });
 
+        fragmentPerfilPlaylists.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                levantaPantallas = new Intent(v.getContext(), PlaylistActivity.class);
+                v.getContext().startActivity(levantaPantallas);
+            }
+        });
 
     }
 
