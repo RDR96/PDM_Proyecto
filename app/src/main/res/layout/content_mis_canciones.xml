@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.carlos.myapplication.Activities.MisCancionesActivity"
+    tools:showIn="@layout/activity_mis_canciones">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.4"
+        android:background="@color/primary"
+        android:orientation="vertical">
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="2">
+
+            <ImageView
+                android:id="@+id/banner_fav"
+                android:layout_width="match_parent"
+                android:layout_height="97dp"
+                android:layout_marginTop="8dp"
+                android:scaleType="fitCenter"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="1.0"
+                app:srcCompat="@drawable/ic_perfil_mis_canciones_button_microfono" />
+
+            <TextView
+                android:id="@+id/label_fav"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:text="Mis canciones"
+                android:textColor="@color/accent"
+                android:textSize="25sp"
+                app:layout_constraintBottom_toBottomOf="@+id/banner_fav"
+                app:layout_constraintEnd_toEndOf="@+id/banner_fav"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
+
+        </android.support.constraint.ConstraintLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:layout_weight="0.5"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:layout_marginBottom="20dp"
+            tools:layout_editor_absoluteX="8dp">
+
+            <ImageView
+                android:id="@+id/user_photo"
+                android:layout_width="40dp"
+                android:layout_height="match_parent"
+                android:layout_marginRight="5dp"
+                android:scaleType="fitXY"
+                app:srcCompat="@drawable/ic_person_black_24dp"
+                tools:ignore="VectorDrawableCompat" />
+
+            <TextView
+                android:id="@+id/user_name"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Emma Watson"
+                android:textColor="@color/accent"
+                android:textSize="14sp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:background="@color/primary_light"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/ic_search_black_24dp"/>
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Buscar Canciones"
+                android:textSize="12sp"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <include
+        android:layout_height="0dp"
+        android:layout_width="match_parent"
+        android:layout_weight="2"
+        layout="@layout/content_main"/>
+
+</LinearLayout>

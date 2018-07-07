@@ -6,8 +6,9 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+import android.support.v7.widget.CardView;
 
+import com.example.carlos.myapplication.Activities.MisCancionesActivity;
 import com.example.carlos.myapplication.R;
 import com.example.carlos.myapplication.Activities.CancionesFavoritasActivity;
 
@@ -19,7 +20,8 @@ public class PerfilFragment extends Fragment{
     //Espacio de declaración
     private View view;
 
-    private TextView fav;
+    private CardView fragmentPerfilCancionesFavoritasButton;
+    private CardView fragmentPerfilMisCancionesButton;
     private Intent levantaPantallas;
     //Fin
 
@@ -36,18 +38,30 @@ public class PerfilFragment extends Fragment{
     }
 
     private void iniciarControles() {
-        fav = view.findViewById(R.id.canciones_favoritas);
+        fragmentPerfilCancionesFavoritasButton = view.findViewById(R.id.fragment_perfil_canciones_favoritas_button);
+        fragmentPerfilMisCancionesButton = view.findViewById(R.id.fragment_perfil_mis_canciones_button);
         iniciarEventos();
     }
 
     private void iniciarEventos() {
-        fav.setOnClickListener(new View.OnClickListener() {
+        fragmentPerfilCancionesFavoritasButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 levantaPantallas = new Intent(v.getContext(), CancionesFavoritasActivity.class);
                 v.getContext().startActivity(levantaPantallas);
             }
         });
+
+        fragmentPerfilMisCancionesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                levantaPantallas = new Intent(v.getContext(), MisCancionesActivity.class);
+                v.getContext().startActivity(levantaPantallas);
+            }
+        });
+
+
+
     }
 
 }
