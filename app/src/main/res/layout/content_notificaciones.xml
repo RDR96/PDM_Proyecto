@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:padding="15dp">
+
+    <TextView
+        android:id="@+id/etiquetaNotificaciones"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Etiqueta"
+        android:textSize="25dp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:id="@+id/fotopequeñaNotificaciones"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/perfil_portada" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/usuarioNotificaciones"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="usuario" />
+
+            <TextView
+                android:id="@+id/te_etiquetaronNotificaciones"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Te ha etiquecado en una canción" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/fotoGrandeNotificaciones"
+        android:layout_width="match_parent"
+        android:layout_height="215dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/image_border" />
+
+    <TextView
+        android:id="@+id/nombreCancionNotificaciones"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="Nombre de la cancion"
+        android:textSize="15dp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="Artista:" />
+
+        <TextView
+            android:id="@+id/ArtistaNotificaciones"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="El que canta" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:text="Album:" />
+
+        <TextView
+            android:id="@+id/AlbumNotificaiones"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="El de la cancion" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/TiempoNotificaciones"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        android:text="Hace 10 dias" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#605c5c" />
+
+</LinearLayout>
