@@ -1,4 +1,4 @@
-package com.example.carlos.myapplication.Activities;
+package com.example.carlos.myapplication.activities;
 
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -9,9 +9,8 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
-import com.example.carlos.myapplication.Adapters.PlaylistAdapter;
-import com.example.carlos.myapplication.Objects.Notificaciones;
-import com.example.carlos.myapplication.Objects.Playlist;
+import com.example.carlos.myapplication.adapters.PlaylistAdapter;
+import com.example.carlos.myapplication.objects.Playlist;
 import com.example.carlos.myapplication.R;
 
 import java.util.ArrayList;
@@ -44,8 +43,6 @@ public class PlaylistActivity extends AppCompatActivity {
         llenarDatos();
         PlaylistAdapter adapter = new PlaylistAdapter(this,listDatos);
         PlaylistAdapter.setAdapter(adapter);
-
-
     }
 
     private void llenarDatos() {

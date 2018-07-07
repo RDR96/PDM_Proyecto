@@ -1,4 +1,4 @@
-package com.example.carlos.myapplication.Adapters;
+package com.example.carlos.myapplication.adapters;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.carlos.myapplication.Objects.Playlist;
+import com.example.carlos.myapplication.objects.Playlist;
 import com.example.carlos.myapplication.R;
 
 import java.util.List;

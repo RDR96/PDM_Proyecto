@@ -1,4 +1,4 @@
-package com.example.carlos.myapplication.Fragments;
+package com.example.carlos.myapplication.fragments;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,11 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.support.v7.widget.CardView;
 
-import com.example.carlos.myapplication.Activities.AlbumesActivity;
-import com.example.carlos.myapplication.Activities.MisCancionesActivity;
-import com.example.carlos.myapplication.Activities.PlaylistActivity;
+import com.example.carlos.myapplication.activities.AlbumesActivity;
+import com.example.carlos.myapplication.activities.MisCancionesActivity;
+import com.example.carlos.myapplication.activities.PlaylistActivity;
 import com.example.carlos.myapplication.R;
-import com.example.carlos.myapplication.Activities.CancionesFavoritasActivity;
+import com.example.carlos.myapplication.activities.CancionesFavoritasActivity;
 
 /**
  * Created by Deryan Cruz on 6/23/2018.

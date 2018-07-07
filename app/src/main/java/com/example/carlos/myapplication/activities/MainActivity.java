@@ -1,4 +1,4 @@
-package com.example.carlos.myapplication.Activities;
+package com.example.carlos.myapplication.activities;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -7,8 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import com.example.carlos.myapplication.Activities.LoginRegisterActivity;
-import com.example.carlos.myapplication.Fragments.ViewPager;
+import com.example.carlos.myapplication.fragments.ViewPager;
 import com.example.carlos.myapplication.R;
 
 public class MainActivity extends AppCompatActivity {

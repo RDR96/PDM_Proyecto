@@ -1,4 +1,4 @@
-package com.example.carlos.myapplication.Util;
+package com.example.carlos.myapplication.util;
 
 /**
  * Created by Deryan Cruz on 6/23/2018.

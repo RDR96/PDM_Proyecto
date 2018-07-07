@@ -1,4 +1,4 @@
-package com.example.carlos.myapplication.Adapters;
+package com.example.carlos.myapplication.adapters;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
