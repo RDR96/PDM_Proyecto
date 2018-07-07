@@ -1,4 +1,4 @@
-package com.example.carlos.myapplication.fragment;
+package com.example.carlos.myapplication.Fragments;
 
 import android.content.Context;
 import android.graphics.Color;
@@ -11,8 +11,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.carlos.myapplication.R;
-import com.example.carlos.myapplication.adapter.ViewPagerSectionsAdapter;
-import com.example.carlos.myapplication.util.Util;
+import com.example.carlos.myapplication.Adapters.ViewPagerAdapter;
+import com.example.carlos.myapplication.Util.Util;
 
 /**
  * Created by Deryan Cruz on 6/22/2018.
@@ -28,7 +28,6 @@ public class ViewPager extends Fragment {
     private static String dato;
 
     public ViewPager() {
-        // Required empty public constructor
     }
 
     public static ViewPager newInstance(String param) {
@@ -43,8 +42,8 @@ public class ViewPager extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        vista=inflater.inflate(R.layout.fragment_view_pager, container, false);
+
+        vista=inflater.inflate(R.layout.view_pager, container, false);
 
         if(Util.rotacion==0){
             View parent= (View) container.getParent();
@@ -52,11 +51,12 @@ public class ViewPager extends Fragment {
             if(appBar==null){
                 appBar=  parent.findViewById(R.id.appBar);
                 pestanas=new TabLayout(getActivity());
-                pestanas.setTabTextColors(Color.parseColor("#FFFFFF"),Color.parseColor("#FFFFFF"));
+                pestanas.setTabTextColors(Color.parseColor("#727272"), Color.parseColor("#ffffff"));
+
                 appBar.addView(pestanas);
 
-
                 viewPager=  vista.findViewById(R.id.idViewPagerInformacion);
+
                 llenarViewPager(viewPager);
                 viewPager.addOnPageChangeListener(new android.support.v4.view.ViewPager.SimpleOnPageChangeListener(){
                     @Override
@@ -65,6 +65,10 @@ public class ViewPager extends Fragment {
                     }
                 });
                 pestanas.setupWithViewPager(viewPager);
+                pestanas.getTabAt(0).setIcon(R.drawable.ic_home_black_24dp);
+                pestanas.getTabAt(1).setIcon(R.drawable.ic_person_black_24dp);
+                pestanas.getTabAt(2).setIcon(R.drawable.ic_notifications_black_24dp);
+                pestanas.getTabAt(3).setIcon(R.drawable.ic_search_black_24dp);
             }
             pestanas.setTabGravity(TabLayout.GRAVITY_FILL);
         }else{
@@ -76,10 +80,10 @@ public class ViewPager extends Fragment {
     }
 
     private void llenarViewPager(android.support.v4.view.ViewPager viewPager) {
-        ViewPagerSectionsAdapter adapter = new ViewPagerSectionsAdapter(getFragmentManager());
+        ViewPagerAdapter adapter = new ViewPagerAdapter(getFragmentManager());
         adapter.addFragment(new InicioFragment(),"Inicio");
         adapter.addFragment(new PerfilFragment(),"Perfil");
-        adapter.addFragment(new NotificationFragment(),"Notificaciones");
+        adapter.addFragment(new NotificacionesFragment(),"Notificaciones");
         adapter.addFragment(new BuscarFragment(),"Burcar");
         viewPager.setAdapter(adapter);
     }

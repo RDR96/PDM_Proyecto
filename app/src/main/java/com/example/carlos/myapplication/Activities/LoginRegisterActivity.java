@@ -1,4 +1,4 @@
-package com.example.carlos.myapplication.activity;
+package com.example.carlos.myapplication.Activities;
 
 import android.app.Activity;
 import android.content.SharedPreferences;
@@ -37,8 +37,7 @@ public class LoginRegisterActivity extends AppCompatActivity {
         loginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*LoginDialog loginDialog = new LoginDialog().newInstance(this);
-                loginDialog.show(getSupportFragmentManager(),"Login Dialog");*/
+
             }
         });
     }
