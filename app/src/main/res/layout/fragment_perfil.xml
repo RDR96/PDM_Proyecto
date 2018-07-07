@@ -295,7 +295,8 @@
             android:layout_height="0dp"
             android:layout_weight="1"
             android:clickable="true"
-            android:foreground="?android:attr/selectableItemBackground">
+            android:foreground="?android:attr/selectableItemBackground"
+            android:id="@+id/fragment_perfil_albumes_button">
 
             <LinearLayout
                 android:layout_width="match_parent"

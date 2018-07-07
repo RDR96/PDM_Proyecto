@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.support.v7.widget.CardView;
 
+import com.example.carlos.myapplication.Activities.AlbumesActivity;
 import com.example.carlos.myapplication.Activities.MisCancionesActivity;
 import com.example.carlos.myapplication.R;
 import com.example.carlos.myapplication.Activities.CancionesFavoritasActivity;
@@ -22,6 +23,7 @@ public class PerfilFragment extends Fragment{
 
     private CardView fragmentPerfilCancionesFavoritasButton;
     private CardView fragmentPerfilMisCancionesButton;
+    private CardView fragmentPerfilAlbumesButton;
     private Intent levantaPantallas;
     //Fin
 
@@ -40,6 +42,7 @@ public class PerfilFragment extends Fragment{
     private void iniciarControles() {
         fragmentPerfilCancionesFavoritasButton = view.findViewById(R.id.fragment_perfil_canciones_favoritas_button);
         fragmentPerfilMisCancionesButton = view.findViewById(R.id.fragment_perfil_mis_canciones_button);
+        fragmentPerfilAlbumesButton = view.findViewById(R.id.fragment_perfil_albumes_button);
         iniciarEventos();
     }
 
@@ -60,6 +63,13 @@ public class PerfilFragment extends Fragment{
             }
         });
 
+        fragmentPerfilAlbumesButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                levantaPantallas = new Intent(v.getContext(), AlbumesActivity.class);
+                v.getContext().startActivity(levantaPantallas);
+            }
+        });
 
 
     }

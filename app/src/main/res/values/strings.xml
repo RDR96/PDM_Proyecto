@@ -2,4 +2,5 @@
     <string name="app_name">ShareFun!</string>
     <string name="title_activity_favoritos">FavoritosActivity</string>
     <string name="title_activity_mis_canciones">Mis Canciones</string>
+    <string name="title_activity_albumes">AlbumesActivity</string>
 </resources>
