@@ -47,6 +47,6 @@ public class PlaylistActivity extends AppCompatActivity {
 
     private void llenarDatos() {
         listDatos.add(new Playlist("Nombre playlist","autor","album"));
-
+        listDatos.add(new Playlist("Nombre playlist1","autor1","album1"));
     }
 }
