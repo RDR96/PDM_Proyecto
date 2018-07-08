@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.support.v7.widget.CardView;
 
+import com.example.carlos.myapplication.activities.ArtistasActivity;
 import com.example.carlos.myapplication.activities.AlbumesActivity;
 import com.example.carlos.myapplication.activities.MisCancionesActivity;
 import com.example.carlos.myapplication.activities.PlaylistActivity;
@@ -26,6 +27,7 @@ public class PerfilFragment extends Fragment{
     private CardView fragmentPerfilMisCancionesButton;
     private CardView fragmentPerfilAlbumesButton;
     private CardView fragmentPerfilPlaylists;
+    private CardView fragmentPerfilArtistasButton;
     private Intent levantaPantallas;
     //Fin
 
@@ -46,6 +48,7 @@ public class PerfilFragment extends Fragment{
         fragmentPerfilMisCancionesButton = view.findViewById(R.id.fragment_perfil_mis_canciones_button);
         fragmentPerfilAlbumesButton = view.findViewById(R.id.fragment_perfil_albumes_button);
         fragmentPerfilPlaylists = view.findViewById(R.id.fragment_perfil_playlists_button);
+        fragmentPerfilArtistasButton = view.findViewById(R.id.fragment_perfil_artistas_card);
         iniciarEventos();
     }
 
@@ -78,6 +81,13 @@ public class PerfilFragment extends Fragment{
             @Override
             public void onClick(View v) {
                 levantaPantallas = new Intent(v.getContext(), PlaylistActivity.class);
+                v.getContext().startActivity(levantaPantallas);
+            }
+        });
+        fragmentPerfilArtistasButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                levantaPantallas = new Intent(v.getContext(), ArtistasActivity.class);
                 v.getContext().startActivity(levantaPantallas);
             }
         });
