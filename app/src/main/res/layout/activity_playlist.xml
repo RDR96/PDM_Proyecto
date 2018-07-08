@@ -45,14 +45,15 @@
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbarplaylist"
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_weight="1"
+                android:layout_height="40dp"
+                android:gravity="right"
                 app:layout_collapseMode="pin"
                 app:layout_collapseParallaxMultiplier="0.0"
-                app:popupTheme="@style/AppTheme.PopupOverlay" />
+                app:popupTheme="@style/AppTheme.PopupOverlay" >
 
 
 
+            </android.support.v7.widget.Toolbar>
 
         </android.support.design.widget.CollapsingToolbarLayout>
 
@@ -60,6 +61,7 @@
     </android.support.design.widget.AppBarLayout>
 
     <include layout="@layout/recycler_view"/>
+    <include layout="@layout/buscar"/>
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
@@ -69,5 +71,7 @@
         app:layout_anchor="@id/app_bar"
         app:layout_anchorGravity="bottom|end"
         app:srcCompat="@android:drawable/ic_input_add" />
+
+
 
 </android.support.design.widget.CoordinatorLayout>
