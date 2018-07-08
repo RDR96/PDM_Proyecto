@@ -50,8 +50,6 @@ public class PlaylistAdapter  extends RecyclerView.Adapter<PlaylistAdapter.Playl
 
     public class PlaylistHolder extends RecyclerView.ViewHolder {
 
-        //TODO inicializar los controles del news_card
-
         TextView albumPlaylist, autorPlaylist, namePlaylist;
         ImageView imagePlaylist;
 
