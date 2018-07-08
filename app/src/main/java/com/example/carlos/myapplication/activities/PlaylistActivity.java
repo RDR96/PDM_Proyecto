@@ -39,6 +39,7 @@ public class PlaylistActivity extends AppCompatActivity {
 
         listDatos = new ArrayList<>();
         PlaylistAdapter = findViewById(R.id.recycler_view);
+        PlaylistAdapter.setHasFixedSize(true);
         PlaylistAdapter.setLayoutManager(new LinearLayoutManager(this));
         llenarDatos();
         PlaylistAdapter adapter = new PlaylistAdapter(this,listDatos);
@@ -46,6 +47,12 @@ public class PlaylistActivity extends AppCompatActivity {
     }
 
     private void llenarDatos() {
+        listDatos.add(new Playlist("Nombre playlist","autor","album"));
+        listDatos.add(new Playlist("Nombre playlist1","autor1","album1"));
+        listDatos.add(new Playlist("Nombre playlist","autor","album"));
+        listDatos.add(new Playlist("Nombre playlist1","autor1","album1"));
+        listDatos.add(new Playlist("Nombre playlist","autor","album"));
+        listDatos.add(new Playlist("Nombre playlist1","autor1","album1"));
         listDatos.add(new Playlist("Nombre playlist","autor","album"));
         listDatos.add(new Playlist("Nombre playlist1","autor1","album1"));
     }
