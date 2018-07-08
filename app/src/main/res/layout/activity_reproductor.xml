@@ -47,6 +47,7 @@
                     android:src="@drawable/ic_like_red"
                     />
                 <SeekBar
+                    android:id="@+id/barra_progreso_cancion"
                     android:layout_marginTop="15dp"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
@@ -56,12 +57,14 @@
                     android:layout_weight="2"
                     >
                     <TextView
+                        android:id="@+id/tiempo_transcurrido"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:text="00:00"
                         />
                     <TextView
+                        android:id="@+id/tiempo_restante"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -71,6 +74,7 @@
                         />
                 </LinearLayout>
                 <TextView
+                    android:id="@+id/nombre_cancion"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -86,6 +90,7 @@
 
                     >
                     <TextView
+                        android:id="@+id/nombre_artista"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -94,6 +99,7 @@
                         android:text="Artista"
                         />
                     <TextView
+                        android:id="@+id/nombre_album"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
@@ -135,6 +141,7 @@
                     android:gravity="center"
                     >
                     <ImageView
+                        android:id="@+id/boton_reproducir"
                         android:layout_width="40dp"
                         android:layout_height="40dp"
                         android:src="@drawable/ic_play_arrow"

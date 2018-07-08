@@ -95,4 +95,5 @@
     </string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_artistas">ArtistasActivity</string>
+    <string name="get_songs">Obtener canciones</string>
 </resources>
