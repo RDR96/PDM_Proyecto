@@ -27,6 +27,8 @@ public class PlaylistActivity extends AppCompatActivity {
         setContentView(R.layout.activity_playlist);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarplaylist);
         setSupportActionBar(toolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {

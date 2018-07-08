@@ -21,25 +21,32 @@
         </activity>
         <activity
             android:name=".activities.CancionesFavoritasActivity"
-            android:parentActivityName=".activities.MainActivity"
             android:label="Mis Favoritas"
+            android:parentActivityName=".activities.MainActivity"
             android:windowSoftInputMode="adjustNothing" />
         <activity
             android:name=".activities.MisCancionesActivity"
-            android:parentActivityName=".activities.MainActivity"
             android:label="Mis Canciones"
+            android:parentActivityName=".activities.MainActivity"
             android:windowSoftInputMode="adjustNothing" />
         <activity
             android:name=".activities.AlbumesActivity"
             android:label="Albumes"
             android:parentActivityName=".activities.MainActivity"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustNothing"/>
+            android:windowSoftInputMode="adjustNothing" />
         <activity
             android:name=".activities.PlaylistActivity"
-            android:parentActivityName=".activities.MainActivity"
             android:label="Playlist"
-            android:theme="@style/AppTheme.NoActionBar"/>
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:parentActivityName=".activities.MainActivity"
+            android:name=".activities.ArtistasActivity"
+            android:label="Artistas"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
     </application>
 
 </manifest>

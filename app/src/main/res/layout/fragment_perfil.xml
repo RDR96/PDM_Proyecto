@@ -384,8 +384,8 @@
             android:layout_weight="1"
             android:clickable="true"
             android:foreground="?android:attr/selectableItemBackground"
-            android:id="@+id/fragment_perfil_artistas_button"
-          >
+            android:id="@+id/fragment_perfil_artistas_card"
+            >
 
             <LinearLayout
                 android:layout_width="match_parent"

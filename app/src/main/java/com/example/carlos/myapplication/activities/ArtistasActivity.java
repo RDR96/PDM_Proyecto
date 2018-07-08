@@ -9,17 +9,14 @@ import android.view.View;
 
 import com.example.carlos.myapplication.R;
 
-public class AlbumesActivity extends AppCompatActivity {
+public class ArtistasActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_albumes);
+        setContentView(R.layout.activity_artistas);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
-
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -29,5 +26,4 @@ public class AlbumesActivity extends AppCompatActivity {
             }
         });
     }
-
 }
