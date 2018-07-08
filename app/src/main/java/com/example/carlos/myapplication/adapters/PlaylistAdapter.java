@@ -31,12 +31,12 @@ public class PlaylistAdapter  extends RecyclerView.Adapter<PlaylistAdapter.Playl
     @NonNull
     @Override
     public PlaylistHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_playlist,null,false);
-        return new PlaylistAdapter.PlaylistHolder(view);
+        View view = LayoutInflater.from(context).inflate(R.layout.card_playlist,null,false);
+        return new PlaylistHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull PlaylistHolder holder, int position) {
+    public void onBindViewHolder(@NonNull PlaylistAdapter.PlaylistHolder holder, int position) {
         holder.albumPlaylist.setText(playlistList.get(position).getAlbumPlaylist());
         holder.autorPlaylist.setText(playlistList.get(position).getAutorPlaylist());
         holder.namePlaylist.setText(playlistList.get(position).getNombrePlaylist());
@@ -49,8 +49,6 @@ public class PlaylistAdapter  extends RecyclerView.Adapter<PlaylistAdapter.Playl
 
 
     public class PlaylistHolder extends RecyclerView.ViewHolder {
-
-        //TODO inicializar los controles del news_card
 
         TextView albumPlaylist, autorPlaylist, namePlaylist;
         ImageView imagePlaylist;

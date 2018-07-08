@@ -25,7 +25,7 @@ public class PlaylistActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_playlist);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbarplaylist);
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
@@ -47,6 +47,6 @@ public class PlaylistActivity extends AppCompatActivity {
 
     private void llenarDatos() {
         listDatos.add(new Playlist("Nombre playlist","autor","album"));
-
+        listDatos.add(new Playlist("Nombre playlist1","autor1","album1"));
     }
 }
