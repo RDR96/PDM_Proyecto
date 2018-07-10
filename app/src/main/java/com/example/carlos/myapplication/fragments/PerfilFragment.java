@@ -8,8 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.support.v7.widget.CardView;
 
-import com.example.carlos.myapplication.activities.ArtistasActivity;
 import com.example.carlos.myapplication.activities.AlbumesActivity;
+import com.example.carlos.myapplication.activities.ArtistasActivity;
 import com.example.carlos.myapplication.activities.CancionesFavoritasActivity;
 import com.example.carlos.myapplication.activities.MisCancionesActivity;
 import com.example.carlos.myapplication.activities.PlaylistActivity;

@@ -100,4 +100,6 @@
     <string name="password">Contraseña</string>
     <string name="sign_in">INICIAR SESIÓN</string>
     <string name="title_activity_canciones_favoritas">Mis Favoritas</string>
+    <string name="title_activity_mis_canciones2">Mis Canciones</string>
+    <string name="title_activity_albumes2">Albumes</string>
 </resources>

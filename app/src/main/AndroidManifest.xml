@@ -22,17 +22,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.MisCancionesActivity"
-            android:label="Mis Canciones"
-            android:parentActivityName=".activities.MainActivity"
-            android:windowSoftInputMode="adjustNothing" />
-        <activity
-            android:name=".activities.AlbumesActivity"
-            android:label="Albumes"
-            android:parentActivityName=".activities.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustNothing" />
-        <activity
             android:name=".activities.PlaylistActivity"
             android:label="Playlist"
             android:parentActivityName=".activities.MainActivity"
@@ -41,17 +30,23 @@
             android:name=".activities.ArtistasActivity"
             android:label="Artistas"
             android:parentActivityName=".activities.MainActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity android:name=".activities.ReproductorActivity" />
         <activity
             android:name=".activities.CancionesFavoritasActivity"
-            android:parentActivityName=".activities.MainActivity"
             android:label="@string/title_activity_canciones_favoritas"
-            android:theme="@style/AppTheme.NoActionBar">
-
-        </activity>
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".activities.MisCancionesActivity"
+            android:label="@string/title_activity_mis_canciones2"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity
+            android:name=".activities.AlbumesActivity"
+            android:label="@string/title_activity_albumes2"
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
