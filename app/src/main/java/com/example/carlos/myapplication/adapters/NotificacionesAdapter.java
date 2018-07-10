@@ -1,4 +1,4 @@
-package com.example.carlos.myapplication.Adapters;
+package com.example.carlos.myapplication.adapters;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
@@ -8,16 +8,16 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.example.carlos.myapplication.Objects.Notificaciones;
+import com.example.carlos.myapplication.objects.Notificaciones;
 import com.example.carlos.myapplication.R;
 
 import java.util.ArrayList;
 
-public class RecylerViewAdapter extends RecyclerView.Adapter<RecylerViewAdapter.ViewHolder> {
+public class NotificacionesAdapter extends RecyclerView.Adapter<NotificacionesAdapter.ViewHolder> {
 
     ArrayList<Notificaciones> listDatos;
 
-    public RecylerViewAdapter(ArrayList<Notificaciones> listDatos) {
+    public NotificacionesAdapter(ArrayList<Notificaciones> listDatos) {
         this.listDatos = listDatos;
     }
 
@@ -30,7 +30,7 @@ public class RecylerViewAdapter extends RecyclerView.Adapter<RecylerViewAdapter.
     }
 
     @Override
-    public void onBindViewHolder(@NonNull RecylerViewAdapter.ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull NotificacionesAdapter.ViewHolder holder, int position) {
 
         holder.etiqueta.setText(listDatos.get(position).getEtiqueta());
         holder.usuario.setText(listDatos.get(position).getUsuario());

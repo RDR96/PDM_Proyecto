@@ -1,7 +1,8 @@
-package com.example.carlos.myapplication.Activities;
+package com.example.carlos.myapplication.activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 
 import com.example.carlos.myapplication.R;
 

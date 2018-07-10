@@ -1,4 +1,4 @@
-package com.example.carlos.myapplication.Objects;
+package com.example.carlos.myapplication.objects;
 
 public class Notificaciones {
 

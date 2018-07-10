@@ -1,4 +1,4 @@
-package com.example.carlos.myapplication.Fragments;
+package com.example.carlos.myapplication.fragments;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -8,8 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.carlos.myapplication.Adapters.RecylerViewAdapter;
-import com.example.carlos.myapplication.Objects.Notificaciones;
+import com.example.carlos.myapplication.adapters.NotificacionesAdapter;
+import com.example.carlos.myapplication.objects.Notificaciones;
 import com.example.carlos.myapplication.R;
 
 import java.util.ArrayList;
@@ -37,7 +37,7 @@ public class NotificacionesFragment extends Fragment {
 
         llenarLista();
 
-        RecylerViewAdapter adapter = new RecylerViewAdapter(listDatos);
+        NotificacionesAdapter adapter = new NotificacionesAdapter(listDatos);
         recyclerViewNotificaciones.setAdapter(adapter);
 
         return view;
