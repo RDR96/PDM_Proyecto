@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.carlos.myapplication">
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -43,12 +43,12 @@
             android:parentActivityName=".activities.MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:parentActivityName=".activities.MainActivity"
             android:name=".activities.ArtistasActivity"
             android:label="Artistas"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <activity android:name=".activities.ReproductorActivity"></activity>
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".activities.ReproductorActivity" />
+        <activity android:name=".activities.ActivityRegistro"></activity>
     </application>
 
 </manifest>
