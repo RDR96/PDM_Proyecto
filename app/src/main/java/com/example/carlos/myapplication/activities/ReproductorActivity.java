@@ -155,6 +155,7 @@ public class ReproductorActivity extends AppCompatActivity {
             }
         });
 
+        
         botonSiguiente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
