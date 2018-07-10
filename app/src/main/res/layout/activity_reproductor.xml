@@ -24,7 +24,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="200dp"
                 android:src="@drawable/ic_search_black_24dp"
-                android:background="@drawable/radius_border"
+
                 />
         </LinearLayout>
 
@@ -41,11 +41,33 @@
                 android:orientation="vertical"
                 android:padding="8dp"
                 >
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
-                    android:src="@drawable/ic_like_red"
-                    />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+
+                    >
+
+                        <ImageView
+                            android:layout_width="30dp"
+                            android:layout_height="30dp"
+                            android:src="@drawable/ic_like_red"
+                            android:layout_centerInParent="true"
+                            />
+
+
+                        <ImageView
+                            android:id="@+id/boton_repetir_cancion"
+                            android:layout_width="35dp"
+                            android:layout_height="35dp"
+                            android:src="@drawable/ic_repeat"
+                            android:layout_gravity="right"
+                            android:alpha="0.3"
+                            android:layout_alignParentRight="true"
+                            />
+
+                </RelativeLayout>
+
                 <SeekBar
                     android:id="@+id/barra_progreso_cancion"
                     android:layout_marginTop="15dp"

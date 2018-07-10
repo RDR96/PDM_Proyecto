@@ -22,10 +22,27 @@ public class ReproductorActivity extends AppCompatActivity {
     TextView textoArtista, textoCancion, textoAlbum, tiempoTranscurrido, tiempoRestante;
     SeekBar barraProgresoCancion;
     int tiempoTotal;
+    int currentTime;
+    ImageView botonRepetir;
+    boolean isRepeating;
+    boolean isPlaying;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_reproductor);
+
+        if (savedInstanceState != null) {
+            // Restore value of members from saved state
+            currentTime = savedInstanceState.getInt("currentPosition");
+            isRepeating = savedInstanceState.getBoolean("isRepeating");
+            isPlaying = savedInstanceState.getBoolean("isPlaying");
+            //mCurrentLevel = savedInstanceState.getInt(STATE_LEVEL);
+        } else {
+            currentTime = 0;
+            isRepeating = false;
+            isPlaying = false;
+        }
 
         getViews();
         setConfiguration();
@@ -37,11 +54,11 @@ public class ReproductorActivity extends AppCompatActivity {
         barraProgresoCancion = findViewById(R.id.barra_progreso_cancion);
         tiempoTranscurrido = findViewById(R.id.tiempo_transcurrido);
         tiempoRestante = findViewById(R.id.tiempo_restante);
+        botonRepetir = findViewById(R.id.boton_repetir_cancion);
     }
 
     public void getPlayer(){
         mediaPlayer = Helpers.getPlayer(getApplicationContext(), info[2]);
-        mediaPlayer.seekTo(0);
         barraProgresoCancion.setMax(mediaPlayer.getDuration());
         barraProgresoCancion.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -64,7 +81,19 @@ public class ReproductorActivity extends AppCompatActivity {
         });
 
         //mediaPlayer = MediaPlayer.create(getApplicationContext(), Uri.parse(info[2]));
-        mediaPlayer.start();
+        mediaPlayer.seekTo(currentTime);
+
+        if (  ) {
+
+        }
+            if (!isPlaying) {
+                mediaPlayer.start();
+                isPlaying = true;
+            } else {
+                mediaPlayer.pause();
+                isPlaying = false;
+            }
+
         botonReproducir.setImageResource(R.drawable.ic_pause_button);
         textoCancion = findViewById(R.id.nombre_cancion);
         textoArtista = findViewById(R.id.nombre_artista);
@@ -122,6 +151,34 @@ public class ReproductorActivity extends AppCompatActivity {
         Intent intent = getIntent();
         datosCancion(intent);
 
+        if (mediaPlayer != null) {
+            if (isRepeating) {
+                botonRepetir.setAlpha(1f);
+                mediaPlayer.setLooping(true);
+                isRepeating = true;
+            } else{
+                botonRepetir.setAlpha(0.3f);
+                mediaPlayer.setLooping(false);
+                isRepeating = false;
+            }
+        }
+
+
+        botonRepetir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isRepeating) {
+                    botonRepetir.setAlpha(0.3f);
+                    mediaPlayer.setLooping(false);
+                    isRepeating = false;
+                } else {
+                    botonRepetir.setAlpha(1f);
+                    mediaPlayer.setLooping(true);
+                    isRepeating = true;
+                }
+            }
+        });
+
         botonReproducir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -139,5 +196,21 @@ public class ReproductorActivity extends AppCompatActivity {
     public void datosCancion(Intent intent){
         info = intent.getStringExtra(Intent.EXTRA_TEXT).split("-/");
     }
+
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        // Save UI state changes to the savedInstanceState.
+        // This bundle will be passed to onCreate if the process is
+        // killed and restarted.
+        savedInstanceState.putBoolean("isRepeating", isRepeating);
+        savedInstanceState.putBoolean("isPlaying", isPlaying);
+        savedInstanceState.putInt("currentPosition",mediaPlayer.getCurrentPosition());
+        // etc.
+    }
+
+
+
 }
 
