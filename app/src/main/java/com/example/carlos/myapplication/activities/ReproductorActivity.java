@@ -48,7 +48,7 @@ public class ReproductorActivity extends AppCompatActivity {
             isRepeating = savedInstanceState.getBoolean("isRepeating");
             isPlaying = savedInstanceState.getBoolean("isPlaying");
             firstTimePlaying = false;
-
+            currentPosition = savedInstanceState.getInt("songPosition");
             //mCurrentLevel = savedInstanceState.getInt(STATE_LEVEL);
         } else {
             firstTimePlaying = true;
@@ -149,7 +149,7 @@ public class ReproductorActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 currentTime = 0;
-                isPlaying = false;
+                //isPlaying = false;
                 nextSong();
             }
         });
@@ -159,7 +159,7 @@ public class ReproductorActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 currentTime = 0;
-                isPlaying = false;
+                //isPlaying = false;
                 nextSong();
             }
         });
@@ -167,6 +167,9 @@ public class ReproductorActivity extends AppCompatActivity {
 
     public void datosCancion(Intent intent){
         info = intent.getStringExtra(Intent.EXTRA_TEXT).split("-/");
+        if (firstTimePlaying) {
+            currentPosition = Integer.parseInt(info[4]);
+        }
     }
 
 
@@ -179,6 +182,7 @@ public class ReproductorActivity extends AppCompatActivity {
         savedInstanceState.putBoolean("isRepeating", isRepeating);
         savedInstanceState.putBoolean("isPlaying", isPlaying);
         savedInstanceState.putInt("currentPosition",mediaPlayer.getCurrentPosition());
+        savedInstanceState.putInt("songPosition", currentPosition);
         // etc.
     }
 
