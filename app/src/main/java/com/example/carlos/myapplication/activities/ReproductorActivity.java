@@ -48,7 +48,7 @@ public class ReproductorActivity extends AppCompatActivity {
             isRepeating = savedInstanceState.getBoolean("isRepeating");
             isPlaying = savedInstanceState.getBoolean("isPlaying");
             firstTimePlaying = false;
-
+            currentPosition = savedInstanceState.getInt("songPosition");
             //mCurrentLevel = savedInstanceState.getInt(STATE_LEVEL);
         } else {
             firstTimePlaying = true;
@@ -74,43 +74,6 @@ public class ReproductorActivity extends AppCompatActivity {
 
     public void getPlayer(){
 
-        mediaPlayer = Helpers.getPlayer(getApplicationContext(), info[2]);
-        barraProgresoCancion.setMax(mediaPlayer.getDuration());
-        barraProgresoCancion.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                if (fromUser) {
-                    mediaPlayer.seekTo(progress);
-                    barraProgresoCancion.setProgress(progress);
-                }
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
-        });
-
-        //mediaPlayer = MediaPlayer.create(getApplicationContext(), Uri.parse(info[2]));
-        mediaPlayer.seekTo(currentTime);
-
-
-            if (!isPlaying) {
-                mediaPlayer.start();
-                isPlaying = true;
-            } else {
-                mediaPlayer.pause();
-                isPlaying = false;
-            }
-
-        if (firstTimePlaying) {
-            currentPosition = Integer.parseInt(info[4]);
-        }
         playBackMusic();
 
 
@@ -186,7 +149,7 @@ public class ReproductorActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 currentTime = 0;
-                isPlaying = false;
+                //isPlaying = false;
                 nextSong();
             }
         });
@@ -196,7 +159,7 @@ public class ReproductorActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 currentTime = 0;
-                isPlaying = false;
+                //isPlaying = false;
                 nextSong();
             }
         });
@@ -204,6 +167,9 @@ public class ReproductorActivity extends AppCompatActivity {
 
     public void datosCancion(Intent intent){
         info = intent.getStringExtra(Intent.EXTRA_TEXT).split("-/");
+        if (firstTimePlaying) {
+            currentPosition = Integer.parseInt(info[4]);
+        }
     }
 
 
@@ -216,6 +182,7 @@ public class ReproductorActivity extends AppCompatActivity {
         savedInstanceState.putBoolean("isRepeating", isRepeating);
         savedInstanceState.putBoolean("isPlaying", isPlaying);
         savedInstanceState.putInt("currentPosition",mediaPlayer.getCurrentPosition());
+        savedInstanceState.putInt("songPosition", currentPosition);
         // etc.
     }
 
@@ -301,9 +268,9 @@ public class ReproductorActivity extends AppCompatActivity {
             textoCancion = findViewById(R.id.nombre_cancion);
             textoArtista = findViewById(R.id.nombre_artista);
             textoAlbum = findViewById(R.id.nombre_album);
-            textoCancion.setText(info[0]);
-            textoArtista.setText(info[1]);
-            textoAlbum.setText(info[3]);
+            textoCancion.setText(InicioFragment.listaCanciones.get(currentPosition).getTitulo());
+            textoArtista.setText(InicioFragment.listaCanciones.get(currentPosition).getCantante());
+            textoAlbum.setText(InicioFragment.listaCanciones.get(currentPosition).getAlbum());
             tiempoTotal = mediaPlayer.getDuration();
 
             new Thread(new Runnable() {
