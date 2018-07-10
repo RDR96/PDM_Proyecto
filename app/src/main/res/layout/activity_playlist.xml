@@ -44,10 +44,8 @@
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbarplaylist"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:gravity="right"
+                android:layout_height="?attr/actionBarSize"
                 app:layout_collapseMode="pin"
-                app:layout_collapseParallaxMultiplier="0.0"
                 app:popupTheme="@style/AppTheme.PopupOverlay" >
 
 
@@ -67,7 +65,6 @@
         >
         <include layout="@layout/buscar"/>
         <include layout="@layout/recycler_view"/>
-
     </LinearLayout>
 
 

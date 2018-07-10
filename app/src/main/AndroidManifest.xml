@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.carlos.myapplication">
 
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -22,11 +22,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".activities.CancionesFavoritasActivity"
-            android:label="Mis Favoritas"
-            android:parentActivityName=".activities.MainActivity"
-            android:windowSoftInputMode="adjustNothing" />
-        <activity
             android:name=".activities.MisCancionesActivity"
             android:label="Mis Canciones"
             android:parentActivityName=".activities.MainActivity"
@@ -43,12 +38,20 @@
             android:parentActivityName=".activities.MainActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:parentActivityName=".activities.MainActivity"
             android:name=".activities.ArtistasActivity"
             android:label="Artistas"
+            android:parentActivityName=".activities.MainActivity"
             android:theme="@style/AppTheme.NoActionBar">
+
         </activity>
-        <activity android:name=".activities.ReproductorActivity"></activity>
+        <activity android:name=".activities.ReproductorActivity" />
+        <activity
+            android:name=".activities.CancionesFavoritasActivity"
+            android:parentActivityName=".activities.MainActivity"
+            android:label="@string/title_activity_canciones_favoritas"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
     </application>
 
 </manifest>

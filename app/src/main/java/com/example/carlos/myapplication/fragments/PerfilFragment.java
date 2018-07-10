@@ -10,10 +10,10 @@ import android.support.v7.widget.CardView;
 
 import com.example.carlos.myapplication.activities.ArtistasActivity;
 import com.example.carlos.myapplication.activities.AlbumesActivity;
+import com.example.carlos.myapplication.activities.CancionesFavoritasActivity;
 import com.example.carlos.myapplication.activities.MisCancionesActivity;
 import com.example.carlos.myapplication.activities.PlaylistActivity;
 import com.example.carlos.myapplication.R;
-import com.example.carlos.myapplication.activities.CancionesFavoritasActivity;
 
 /**
  * Created by Deryan Cruz on 6/23/2018.
