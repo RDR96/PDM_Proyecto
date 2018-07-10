@@ -48,7 +48,8 @@ public class InicioAdapter extends RecyclerView.Adapter<InicioAdapter.ViewHolder
                 Intent intent = new Intent(context, ReproductorActivity.class);
                 intent.setAction(Intent.ACTION_SEND);
                 intent.setType("text/plain");
-                intent.putExtra(Intent.EXTRA_TEXT,listDatos.get(position).getTitulo() + "-/" + listDatos.get(position).getCantante() + "-/" + listDatos.get(position).getLocalizacion());
+                Toast.makeText(context, listDatos.get(position).getId(),Toast.LENGTH_SHORT).show();
+                intent.putExtra(Intent.EXTRA_TEXT,listDatos.get(position).getTitulo() + "-/" + listDatos.get(position).getCantante() + "-/" + listDatos.get(position).getLocalizacion() + "-/" + listDatos.get(position).getAlbum() + "-/" + position);
                 context.startActivity(intent);
             }
         });
