@@ -83,6 +83,7 @@ public class ReproductorActivity extends AppCompatActivity {
         //mediaPlayer = MediaPlayer.create(getApplicationContext(), Uri.parse(info[2]));
         mediaPlayer.seekTo(currentTime);
 
+
             if (!isPlaying) {
                 mediaPlayer.start();
                 isPlaying = true;
