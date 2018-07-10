@@ -9,11 +9,31 @@ public class Cancion {
     String titulo;
     String cantante;
     String localizacion;
+    String album;
+    String id;
 
-    public Cancion(String titulo, String cantante, String localizacion) {
+    public Cancion(String titulo, String cantante, String localizacion, String album, String id) {
         this.titulo = titulo;
         this.cantante = cantante;
         this.localizacion = localizacion;
+        this.album = album;
+        this.id = id;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getAlbum() {
+        return album;
+    }
+
+    public void setAlbum(String album) {
+        this.album = album;
     }
 
     public String getTitulo() {
