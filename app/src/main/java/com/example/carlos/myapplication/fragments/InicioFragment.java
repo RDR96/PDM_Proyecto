@@ -34,7 +34,7 @@ import java.util.ArrayList;
 public class InicioFragment extends Fragment {
 
     private View view;
-    ArrayList<Cancion> listaCanciones;
+    public static ArrayList<Cancion> listaCanciones;
     RecyclerView recyclerViewInicio;
     Button botonObtenerCanciones;
 
@@ -103,17 +103,20 @@ public class InicioFragment extends Fragment {
         ContentResolver contentResolver = getContext().getContentResolver();
         Uri songUri = MediaStore.Audio.Media.EXTERNAL_CONTENT_URI;
         Cursor cursor = contentResolver.query(songUri,null,null,null,null);
-
+        int counter = 0;
         if(cursor != null && cursor.moveToFirst()){
             int tituloCancion = cursor.getColumnIndex(MediaStore.Audio.Media.TITLE);
             int artistaCancion = cursor.getColumnIndex(MediaStore.Audio.Media.ARTIST);
             int localizacionCancion = cursor.getColumnIndex(MediaStore.Audio.Media.DATA);
-
+            int albumCancion = cursor.getColumnIndex(MediaStore.Audio.Media.ALBUM);
+            int idCancion = cursor.getColumnIndex(MediaStore.Audio.Media._ID);
             do{
                 String tituloActual = cursor.getString(tituloCancion);
                 String artistaActual = cursor.getString(artistaCancion);
                 String localizacionActual = cursor.getString(localizacionCancion);
-                listaCanciones.add(new Cancion(tituloActual,artistaActual,localizacionActual));
+                String album = cursor.getString(albumCancion);
+                String id = cursor.getString(idCancion);
+                listaCanciones.add(new Cancion(tituloActual,artistaActual,localizacionActual,album, id));
             }while(cursor.moveToNext());
         }
         setList();
