@@ -1,13 +1,19 @@
 package com.example.carlos.myapplication.activities;
 
 import android.content.Intent;
+import android.graphics.Paint;
 import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.DisplayMetrics;
 import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.Animation;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -36,6 +42,7 @@ public class ReproductorActivity extends AppCompatActivity {
     Random ramdomNumber;
     Cancion currentSong;
     int currentPosition;
+    TranslateAnimation slide;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,7 +120,6 @@ public class ReproductorActivity extends AppCompatActivity {
         datosCancion(intent);
 
 
-
         botonRepetir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -149,7 +155,17 @@ public class ReproductorActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 currentTime = 0;
-                //isPlaying = false;
+
+                if (slide != null) {
+                    slide.cancel();
+                }
+
+
+                if (isPlaying) {
+                    isPlaying = false;
+                } else{
+                    isPlaying = true;
+                }
                 nextSong();
             }
         });
@@ -159,7 +175,17 @@ public class ReproductorActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 currentTime = 0;
-                //isPlaying = false;
+
+                if (slide != null) {
+                    slide.cancel();
+                }
+
+                if (isPlaying) {
+                    isPlaying = false;
+                } else{
+                    isPlaying = true;
+                }
+
                 nextSong();
             }
         });
@@ -180,7 +206,7 @@ public class ReproductorActivity extends AppCompatActivity {
         // This bundle will be passed to onCreate if the process is
         // killed and restarted.
         savedInstanceState.putBoolean("isRepeating", isRepeating);
-        savedInstanceState.putBoolean("isPlaying", isPlaying);
+        savedInstanceState.putBoolean("isPlaying", false);
         savedInstanceState.putInt("currentPosition",mediaPlayer.getCurrentPosition());
         savedInstanceState.putInt("songPosition", currentPosition);
         // etc.
@@ -239,15 +265,17 @@ public class ReproductorActivity extends AppCompatActivity {
                     botonReproducir.setImageResource(R.drawable.ic_play_arrow);
                 }
             } else{
-                if (isPlaying) {
-                    mediaPlayer.start();
-                    isPlaying = true;
-                    botonReproducir.setImageResource(R.drawable.ic_pause_button);
-                } else {
-                    //mediaPlayer.pause();
-                    botonReproducir.setImageResource(R.drawable.ic_play_arrow);
-                    isPlaying = false;
-                }
+
+                    if (!isPlaying) {
+                        mediaPlayer.start();
+                        isPlaying = true;
+                        botonReproducir.setImageResource(R.drawable.ic_pause_button);
+                    } else {
+                        //mediaPlayer.pause();
+                        botonReproducir.setImageResource(R.drawable.ic_play_arrow);
+                        isPlaying = false;
+                    }
+
             }
 
             if (mediaPlayer != null) {
@@ -262,13 +290,11 @@ public class ReproductorActivity extends AppCompatActivity {
                 }
             }
 
-
-
-
             textoCancion = findViewById(R.id.nombre_cancion);
             textoArtista = findViewById(R.id.nombre_artista);
             textoAlbum = findViewById(R.id.nombre_album);
-            textoCancion.setText(InicioFragment.listaCanciones.get(currentPosition).getTitulo());
+            moveTextHorizontal(InicioFragment.listaCanciones.get(currentPosition).getTitulo());
+            //textoCancion.setText(InicioFragment.listaCanciones.get(currentPosition).getTitulo());
             textoArtista.setText(InicioFragment.listaCanciones.get(currentPosition).getCantante());
             textoAlbum.setText(InicioFragment.listaCanciones.get(currentPosition).getAlbum());
             tiempoTotal = mediaPlayer.getDuration();
@@ -310,11 +336,55 @@ public class ReproductorActivity extends AppCompatActivity {
             } else {
                 currentSong = InicioFragment.listaCanciones.get(currentPosition);
             }
-
             playBackMusic();
-
     }
 
+    public void moveTextHorizontal(String texto){
+        textoCancion.setText(texto);
+        Paint textPaint = textoCancion.getPaint();
+        String text = textoCancion.getText().toString();//get text
+        int width = Math.round(textPaint.measureText(text));//measure the text size
+        ViewGroup.LayoutParams params =  textoCancion.getLayoutParams();
+        params.width = width;
+        textoCancion.setLayoutParams(params); //refine
+
+        DisplayMetrics displaymetrics = new DisplayMetrics();
+        this.getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
+        int screenWidth = displaymetrics.widthPixels;
+
+        //this is optional. do not scroll if text is shorter than screen width
+        //remove this won't effect the scroll
+        if (width <= screenWidth) {
+            //All text can fit in screen.
+            return;
+        }
+        //set the animation
+        TranslateAnimation slide = new TranslateAnimation(0, -width, 0, 0);
+        slide.setDuration(10000);
+        slide.setStartOffset(2000);
+        slide.setRepeatCount(Animation.INFINITE);
+        slide.setRepeatMode(Animation.RESTART);
+        slide.setFillAfter(true);
+        slide.setFillBefore(true);
+        slide.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
+        slide.setInterpolator(new LinearInterpolator());
+        textoCancion.startAnimation(slide);
+    }
 
 
 
