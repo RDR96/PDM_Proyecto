@@ -31,7 +31,10 @@
             android:label="Artistas"
             android:parentActivityName=".activities.MainActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".activities.ReproductorActivity" />
+        <activity android:name=".activities.ReproductorActivity" >
+            android:parentActivityName=".activities.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+        </activity>
         <activity
             android:name=".activities.CancionesFavoritasActivity"
             android:label="@string/title_activity_canciones_favoritas"
@@ -47,7 +50,6 @@
             android:label="@string/title_activity_albumes2"
             android:parentActivityName=".activities.MainActivity"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".activities.ReproductorActivity" />
         <activity android:name=".activities.ActivityRegistro"></activity>
     </application>
 

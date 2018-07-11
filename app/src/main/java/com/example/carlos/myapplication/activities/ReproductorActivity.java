@@ -206,7 +206,7 @@ public class ReproductorActivity extends AppCompatActivity {
         // This bundle will be passed to onCreate if the process is
         // killed and restarted.
         savedInstanceState.putBoolean("isRepeating", isRepeating);
-        savedInstanceState.putBoolean("isPlaying", isPlaying);
+        savedInstanceState.putBoolean("isPlaying", false);
         savedInstanceState.putInt("currentPosition",mediaPlayer.getCurrentPosition());
         savedInstanceState.putInt("songPosition", currentPosition);
         // etc.
@@ -265,15 +265,17 @@ public class ReproductorActivity extends AppCompatActivity {
                     botonReproducir.setImageResource(R.drawable.ic_play_arrow);
                 }
             } else{
-                if (!isPlaying) {
-                    mediaPlayer.start();
-                    isPlaying = true;
-                    botonReproducir.setImageResource(R.drawable.ic_pause_button);
-                } else {
-                    //mediaPlayer.pause();
-                    botonReproducir.setImageResource(R.drawable.ic_play_arrow);
-                    isPlaying = false;
-                }
+
+                    if (!isPlaying) {
+                        mediaPlayer.start();
+                        isPlaying = true;
+                        botonReproducir.setImageResource(R.drawable.ic_pause_button);
+                    } else {
+                        //mediaPlayer.pause();
+                        botonReproducir.setImageResource(R.drawable.ic_play_arrow);
+                        isPlaying = false;
+                    }
+
             }
 
             if (mediaPlayer != null) {
@@ -334,9 +336,7 @@ public class ReproductorActivity extends AppCompatActivity {
             } else {
                 currentSong = InicioFragment.listaCanciones.get(currentPosition);
             }
-
             playBackMusic();
-
     }
 
     public void moveTextHorizontal(String texto){
@@ -362,12 +362,26 @@ public class ReproductorActivity extends AppCompatActivity {
         TranslateAnimation slide = new TranslateAnimation(0, -width, 0, 0);
         slide.setDuration(10000);
         slide.setStartOffset(2000);
-
         slide.setRepeatCount(Animation.INFINITE);
         slide.setRepeatMode(Animation.RESTART);
         slide.setFillAfter(true);
         slide.setFillBefore(true);
+        slide.setAnimationListener(new Animation.AnimationListener() {
+            @Override
+            public void onAnimationStart(Animation animation) {
 
+            }
+
+            @Override
+            public void onAnimationEnd(Animation animation) {
+
+            }
+
+            @Override
+            public void onAnimationRepeat(Animation animation) {
+
+            }
+        });
         slide.setInterpolator(new LinearInterpolator());
         textoCancion.startAnimation(slide);
     }
