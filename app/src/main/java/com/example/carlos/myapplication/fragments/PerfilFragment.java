@@ -44,50 +44,16 @@ public class PerfilFragment extends Fragment{
     }
 
     private void iniciarControles() {
-        fragmentPerfilCancionesFavoritasButton = view.findViewById(R.id.fragment_perfil_canciones_favoritas_button);
-        fragmentPerfilMisCancionesButton = view.findViewById(R.id.fragment_perfil_mis_canciones_button);
-        fragmentPerfilAlbumesButton = view.findViewById(R.id.fragment_perfil_albumes_button);
         fragmentPerfilPlaylists = view.findViewById(R.id.fragment_perfil_playlists_button);
-        fragmentPerfilArtistasButton = view.findViewById(R.id.fragment_perfil_artistas_card);
         iniciarEventos();
     }
 
     private void iniciarEventos() {
-        fragmentPerfilCancionesFavoritasButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                levantaPantallas = new Intent(v.getContext(), CancionesFavoritasActivity.class);
-                v.getContext().startActivity(levantaPantallas);
-            }
-        });
-
-        fragmentPerfilMisCancionesButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                levantaPantallas = new Intent(v.getContext(), MisCancionesActivity.class);
-                v.getContext().startActivity(levantaPantallas);
-            }
-        });
-
-        fragmentPerfilAlbumesButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                levantaPantallas = new Intent(v.getContext(), AlbumesActivity.class);
-                v.getContext().startActivity(levantaPantallas);
-            }
-        });
 
         fragmentPerfilPlaylists.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 levantaPantallas = new Intent(v.getContext(), PlaylistActivity.class);
-                v.getContext().startActivity(levantaPantallas);
-            }
-        });
-        fragmentPerfilArtistasButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                levantaPantallas = new Intent(v.getContext(), ArtistasActivity.class);
                 v.getContext().startActivity(levantaPantallas);
             }
         });

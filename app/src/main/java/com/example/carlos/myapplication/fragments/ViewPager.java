@@ -66,9 +66,8 @@ public class ViewPager extends Fragment {
                 });
                 pestanas.setupWithViewPager(viewPager);
                 pestanas.getTabAt(0).setIcon(R.drawable.ic_home_black_24dp);
-                pestanas.getTabAt(1).setIcon(R.drawable.ic_person_black_24dp);
-                pestanas.getTabAt(2).setIcon(R.drawable.ic_notifications_black_24dp);
-                pestanas.getTabAt(3).setIcon(R.drawable.ic_search_black_24dp);
+                pestanas.getTabAt(1).setIcon(R.drawable.ic_favorite_black_24dp);
+                pestanas.getTabAt(2).setIcon(R.drawable.ic_person_black_24dp);
             }
             pestanas.setTabGravity(TabLayout.GRAVITY_FILL);
         }else{
@@ -82,9 +81,8 @@ public class ViewPager extends Fragment {
     private void llenarViewPager(android.support.v4.view.ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getFragmentManager());
         adapter.addFragment(new InicioFragment(),"Inicio");
-        adapter.addFragment(new PerfilFragment(),"Perfil");
-        adapter.addFragment(new NotificacionesFragment(),"Notificaciones");
-        adapter.addFragment(new BuscarFragment(),"Burcar");
+        adapter.addFragment(new FavoritosFragment(),"Favoritas");
+        adapter.addFragment(new PerfilFragment(),"Mi Perfil");
         viewPager.setAdapter(adapter);
     }
 

@@ -41,49 +41,16 @@
             app:layout_editor_absoluteX="160dp"
             app:layout_editor_absoluteY="170dp">
 
-            <View
-                android:layout_width="0dp"
-                android:layout_height="50dp"
-                android:layout_weight="1" />
+
 
             <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:layout_marginRight="5dp"
                 android:orientation="horizontal">
 
                 <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:clickable="true"
-                    android:foreground="?android:attr/selectableItemBackground">
-
-                    <ImageView
-                        android:layout_marginTop="4dp"
-                        android:id="@+id/chat"
-                        android:layout_width="25dp"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/ic_perfil_chat_button_chat" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:text="Chat"
-                        android:textSize="10dp"
-                        android:gravity="center"
-                        android:textColor="#ffffff"
-                        />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:gravity="center"
@@ -93,38 +60,6 @@
 
                     <ImageView
                         android:layout_marginTop="3dp"
-                        android:id="@+id/muro"
-                        android:layout_width="25dp"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:scaleType="fitXY"
-                        android:src="@drawable/ic_perfil_tu_concierto_button_tickets" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="0dp"
-                        android:layout_weight="1"
-                        android:text="Tu concierto"
-                        android:textSize="10dp"
-                        android:gravity="center"
-                        android:textColor="#ffffff"
-
-                        />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical"
-                    android:clickable="true"
-                    android:foreground="?android:attr/selectableItemBackground">
-
-                    <ImageView
-                        android:layout_marginTop="3dp"
-
                         android:id="@+id/ajustes"
                         android:layout_width="25dp"
                         android:layout_height="0dp"
@@ -148,6 +83,45 @@
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="50dp"
+                android:layout_height="60dp"
+                android:layout_marginRight="25dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="50dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:clickable="true"
+                    android:foreground="?android:attr/selectableItemBackground">
+
+                    <ImageView
+                        android:layout_marginTop="3dp"
+                        android:id="@+id/log_out"
+                        android:layout_width="25dp"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:scaleType="fitXY"
+                        app:srcCompat="@drawable/ic_exit_to_app_black_24dp"
+                        tools:ignore="VectorDrawableCompat" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:text="Ajustes"
+                        android:textSize="10dp"
+                        android:gravity="center"
+                        android:textColor="#ffffff"
+                        />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
 
         </LinearLayout>
 

@@ -8,8 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.carlos.myapplication.adapters.NotificacionesAdapter;
-import com.example.carlos.myapplication.objects.Notificaciones;
+import com.example.carlos.myapplication.adapters.FavoritosAdapter;
+import com.example.carlos.myapplication.objects.Cancion;
 import com.example.carlos.myapplication.R;
 
 import java.util.ArrayList;
@@ -18,13 +18,13 @@ import java.util.ArrayList;
  * Created by Deryan Cruz on 6/23/2018.
  */
 
-public class NotificacionesFragment extends Fragment {
+public class FavoritosFragment extends Fragment {
 
     private View view;
-    ArrayList<Notificaciones> listDatos;
+    ArrayList<Cancion> listDatos;
     RecyclerView recyclerViewNotificaciones;
 
-    public NotificacionesFragment() {
+    public FavoritosFragment() {
     }
 
     @Override
@@ -37,7 +37,7 @@ public class NotificacionesFragment extends Fragment {
 
         llenarLista();
 
-        NotificacionesAdapter adapter = new NotificacionesAdapter(listDatos);
+        FavoritosAdapter adapter = new FavoritosAdapter(listDatos);
         recyclerViewNotificaciones.setAdapter(adapter);
 
         return view;
@@ -45,8 +45,7 @@ public class NotificacionesFragment extends Fragment {
 
     private void llenarLista() {
 
-        listDatos.add(new Notificaciones("Etiqueta", "Usuario", "Te han etiquetado", "Nombre Cancion", "Nombre del artista", "Nombre del album", "Hace 10 min"));
-        listDatos.add(new Notificaciones("Etiqueta2", "Usuario2", "Te han etiquetado 2", "Duality", "Slipknot", "Duality", "Hace 1 hora"));
+        listDatos.add(new Cancion("Título cancion", "Cantante", "Localización", "Album", "id Canción"));
 
     }
 }
