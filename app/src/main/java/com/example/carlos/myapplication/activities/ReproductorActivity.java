@@ -42,6 +42,7 @@ public class ReproductorActivity extends AppCompatActivity {
     Random ramdomNumber;
     Cancion currentSong;
     int currentPosition;
+    TranslateAnimation slide;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -154,6 +155,12 @@ public class ReproductorActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 currentTime = 0;
+
+                if (slide != null) {
+                    slide.cancel();
+                }
+
+
                 if (isPlaying) {
                     isPlaying = false;
                 } else{
@@ -168,6 +175,10 @@ public class ReproductorActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 currentTime = 0;
+
+                if (slide != null) {
+                    slide.cancel();
+                }
 
                 if (isPlaying) {
                     isPlaying = false;
@@ -350,6 +361,8 @@ public class ReproductorActivity extends AppCompatActivity {
         //set the animation
         TranslateAnimation slide = new TranslateAnimation(0, -width, 0, 0);
         slide.setDuration(10000);
+        slide.setStartOffset(2000);
+
         slide.setRepeatCount(Animation.INFINITE);
         slide.setRepeatMode(Animation.RESTART);
         slide.setFillAfter(true);
