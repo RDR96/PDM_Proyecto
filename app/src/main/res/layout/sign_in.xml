@@ -1,44 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout tools:context=".MainActivity"
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     android:background="@color/cardview_shadow_start_color"
+    android:gravity="center"
+    android:orientation="vertical"
     android:padding="30dp"
-    android:gravity="center">
+    tools:context=".MainActivity">
+
     <ImageView
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:layout_marginBottom="50dp"
-        android:background="@drawable/audifino_dark_green"/>
+        android:background="@drawable/audifino_dark_green" />
+
     <EditText
         android:id="@+id/username"
-        android:inputType="textPersonName"
-        android:layout_height="50dp"
-        android:hint="@string/username"
-        android:layout_marginBottom="15dp"
         android:layout_width="match_parent"
-        android:textColorHint="@color/colorPrimary"
+        android:layout_height="50dp"
+        android:layout_marginBottom="15dp"
         android:background="@color/cardview_light_background"
-        android:padding="10dp"/>
+        android:hint="@string/username"
+        android:inputType="textPersonName"
+        android:padding="10dp"
+        android:textColorHint="@color/colorPrimary" />
+
     <EditText
         android:id="@+id/password"
+        android:layout_width="match_parent"
         android:layout_height="50dp"
+        android:layout_marginBottom="25dp"
+        android:background="@color/cardview_light_background"
         android:hint="@string/password"
         android:inputType="textPassword"
-        android:layout_marginBottom="25dp"
-        android:layout_width="match_parent"
-        android:textColorHint="@color/colorPrimary"
-        android:background="@color/cardview_light_background"
-        android:padding="10dp"/>
+        android:padding="10dp"
+        android:textColorHint="@color/colorPrimary" />
+
     <Button
-        android:layout_height="60dp"
         android:id="@+id/sign_in"
-        android:text="@string/sign_in"
-        android:textColor="@color/cardview_light_background"
         android:layout_width="match_parent"
-        android:background="@color/colorAccent" />
+        android:layout_height="60dp"
+        android:background="@color/colorAccent"
+        android:text="@string/sign_in"
+        android:textColor="@color/cardview_light_background" />
+
 </LinearLayout>
