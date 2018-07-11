@@ -97,15 +97,24 @@
                         android:textAlignment="textEnd"
                         />
                 </LinearLayout>
-                <TextView
-                    android:id="@+id/nombre_cancion"
-                    android:layout_width="match_parent"
+
+                <ScrollView
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:textSize="25sp"
-                    android:textStyle="bold"
-                    android:text="Nombre de canción"
-                    />
+
+                    >
+                    <TextView
+                        android:id="@+id/nombre_cancion"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:textSize="25sp"
+                        android:textStyle="bold"
+                        android:text="Nombre de canción"
+                        />
+
+                </ScrollView>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
