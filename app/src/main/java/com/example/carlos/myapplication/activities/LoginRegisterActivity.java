@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,8 +18,15 @@ import android.widget.Toast;
 import com.example.carlos.myapplication.Database.AppDatabase;
 import com.example.carlos.myapplication.Database.Entidades.Usuario;
 import com.example.carlos.myapplication.R;
+import com.example.carlos.myapplication.Retrofit.ApiAdapter;
+import com.example.carlos.myapplication.objects.Helpers;
+import com.example.carlos.myapplication.objects.RespuestaUsuario;
 
 import org.w3c.dom.Text;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 
 /**
@@ -96,15 +104,39 @@ public class LoginRegisterActivity extends AppCompatActivity {
                 final String usernameText = username.getText().toString();
                 final String passwordText = password.getText().toString();
                 if (!usernameText.equals("") && !passwordText.equals("")) {
+
+                    final Call<RespuestaUsuario> respuestaUsuarioCall = ApiAdapter.getApiHandler().inicio_sesion(usernameText, Helpers.sha1(passwordText));
+
+                    respuestaUsuarioCall.enqueue(new Callback<RespuestaUsuario>() {
+                        @Override
+                        public void onResponse(Call<RespuestaUsuario> call, Response<RespuestaUsuario> response) {
+                            if (response.isSuccessful()) {
+                                RespuestaUsuario respuestaUsuario = response.body();
+                                if (respuestaUsuario.isSuccess() && respuestaUsuario.getUsuario() != null){
+                                    usuarioActual = respuestaUsuario.getUsuario();
+                                    Toast.makeText(LoginRegisterActivity.this, R.string.welcome, Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(LoginRegisterActivity.this, MainActivity.class);
+                                    startActivity(intent);
+                                    finish();
+                                }
+                            }
+                        }
+
+                        @Override
+                        public void onFailure(Call<RespuestaUsuario> call, Throwable t) {
+
+                        }
+                    });
+
                     new Thread(){
                         @Override
                         public void run() {
                             final int verificacionUsuario = appDatabase.usuarioDao().verificarUsuario(passwordText, usernameText);
 
                             if (verificacionUsuario == 1) {
-                                usuarioActual = appDatabase.usuarioDao().obtenerUsuario(passwordText, usernameText);
+                                /*usuarioActual = appDatabase.usuarioDao().obtenerUsuario(passwordText, usernameText);
                                 usuarioActual.setLog(1);
-                                appDatabase.usuarioDao().actualizarUsuario(usuarioActual);
+                                appDatabase.usuarioDao().actualizarUsuario(usuarioActual);*/
                             }
 
                             runOnUiThread(new Runnable() {

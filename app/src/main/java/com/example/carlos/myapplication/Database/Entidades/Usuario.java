@@ -5,6 +5,8 @@ import android.arch.persistence.room.Ignore;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.NonNull;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Created by Rodrigo Corvera on 11/7/2018.
  */
@@ -14,6 +16,7 @@ import android.support.annotation.NonNull;
 public class Usuario {
     @NonNull
     @PrimaryKey(autoGenerate = true)
+    @SerializedName("_id")
     private int id;
 
     private String name;
