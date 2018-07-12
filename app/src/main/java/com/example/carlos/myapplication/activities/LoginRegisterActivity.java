@@ -112,7 +112,7 @@ public class LoginRegisterActivity extends AppCompatActivity {
                         public void onResponse(Call<RespuestaUsuario> call, Response<RespuestaUsuario> response) {
                             if (response.isSuccessful()) {
                                 RespuestaUsuario respuestaUsuario = response.body();
-                                if (respuestaUsuario.isSuccess()){
+                                if (respuestaUsuario.isSuccess() && respuestaUsuario.getUsuario() != null){
                                     usuarioActual = respuestaUsuario.getUsuario();
                                     Toast.makeText(LoginRegisterActivity.this, R.string.welcome, Toast.LENGTH_SHORT).show();
                                     Intent intent = new Intent(LoginRegisterActivity.this, MainActivity.class);
