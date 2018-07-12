@@ -49,6 +49,7 @@
                     >
 
                     <ImageView
+                        android:id="@+id/boton_favorito"
                         android:layout_width="30dp"
                         android:layout_height="30dp"
                         android:src="@drawable/ic_like_red"

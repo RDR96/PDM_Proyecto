@@ -98,8 +98,19 @@
     <string name="get_songs">Obtener canciones</string>
     <string name="username">Usuario</string>
     <string name="password">Contraseña</string>
+    <string name="email">Correo electrónico</string>
     <string name="sign_in">INICIAR SESIÓN</string>
     <string name="title_activity_canciones_favoritas">Mis Favoritas</string>
     <string name="title_activity_mis_canciones2">Mis Canciones</string>
     <string name="title_activity_albumes2">Albumes</string>
+    <string name="want_to_register">¿No tienes una cuenta?</string>
+    <string name="sign_up">Registrarse</string>
+    <string name="fill_gaps">Rellene todos los campos</string>
+    <string name="welcome">Bienvenido</string>
+    <string name="no_user_found">Usuario no encontrado</string>
+    <string name="user_duplicate">Ya existe usuario</string>
+    <string name="want_to_log_out">¿Desea cerrar sesión?</string>
+    <string name="yes">Sí</string>
+    <string name="no">No</string>
+    <string name="successfull_sing_up">Registrado</string>
 </resources>
