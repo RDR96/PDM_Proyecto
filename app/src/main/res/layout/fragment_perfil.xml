@@ -167,8 +167,6 @@
         android:gravity="center"
         android:orientation="vertical">
 
-
-
         <android.support.v7.widget.CardView
             android:id="@+id/fragment_perfil_playlists_button"
             android:layout_width="match_parent"
