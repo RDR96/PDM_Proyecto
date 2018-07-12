@@ -6,28 +6,31 @@
     android:orientation="vertical"
     android:gravity="center">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+
+    <ImageView
+        android:id="@+id/image_headphone"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/audifono_orange"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="28dp"
-        android:textSize="30dp"
-        android:text="Hola, Registrate:"
-        android:textStyle="bold"
         />
 
     <EditText
+        android:id="@+id/username_textfield"
         android:layout_width="wrap_content"
+        android:layout_below="@+id/image_headphone"
         android:layout_height="40dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="104dp"
         android:width="350dp"
-        android:hint="Usuario"
+        android:hint="@string/username"
         android:background="#ffffff"/>
 
     <EditText
+        android:id="@+id/email_textfield"
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:layout_alignParentTop="true"
@@ -35,7 +38,7 @@
         android:layout_marginTop="201dp"
         android:width="350dp"
         android:background="#ffffff"
-        android:hint="Correo electronico"
+        android:hint="@string/email"
         android:inputType="textEmailAddress" />
     />
 
@@ -47,15 +50,16 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="165dp"
+        android:hint="@string/password"
         app:passwordToggleEnabled="true">
 
         <EditText
-            android:id="@+id/activity_registro_contrasena"
+            android:id="@+id/password_texfield"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_centerVertical="true"
             android:ems="20"
-            android:hint="Contrasena"
+            android:hint="@string/password"
             android:inputType="textPassword"
             android:background="#ffffff"/>
 
@@ -63,12 +67,13 @@
     </android.support.design.widget.TextInputLayout>
 
     <Button
+        android:id="@+id/button_register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="57dp"
-        android:text="Registrarse"
+        android:text="@string/sign_up"
         android:textAllCaps="false"
         />
 

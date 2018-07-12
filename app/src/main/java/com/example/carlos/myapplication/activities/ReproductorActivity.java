@@ -2,7 +2,6 @@ package com.example.carlos.myapplication.activities;
 
 import android.content.Intent;
 import android.graphics.Paint;
-import android.media.AudioManager;
 import android.media.MediaPlayer;
 import android.os.Handler;
 import android.os.Message;
@@ -17,13 +16,14 @@ import android.view.animation.TranslateAnimation;
 import android.widget.ImageView;
 import android.widget.SeekBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
+import com.example.carlos.myapplication.Database.AppDatabase;
+import com.example.carlos.myapplication.Database.Entidades.Cancion;
 import com.example.carlos.myapplication.R;
 import com.example.carlos.myapplication.fragments.InicioFragment;
-import com.example.carlos.myapplication.objects.Cancion;
 import com.example.carlos.myapplication.objects.Helpers;
 
+import java.util.ArrayList;
 import java.util.Random;
 
 public class ReproductorActivity extends AppCompatActivity {
@@ -36,6 +36,7 @@ public class ReproductorActivity extends AppCompatActivity {
     int tiempoTotal;
     int currentTime;
     ImageView botonRepetir;
+    ImageView botonFavorito;
     boolean isRepeating;
     boolean isPlaying;
     boolean firstTimePlaying;
@@ -43,6 +44,8 @@ public class ReproductorActivity extends AppCompatActivity {
     Cancion currentSong;
     int currentPosition;
     TranslateAnimation slide;
+    AppDatabase appDatabase;
+    ArrayList<Cancion> listaCanciones;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +80,7 @@ public class ReproductorActivity extends AppCompatActivity {
         tiempoTranscurrido = findViewById(R.id.tiempo_transcurrido);
         tiempoRestante = findViewById(R.id.tiempo_restante);
         botonRepetir = findViewById(R.id.boton_repetir_cancion);
+        botonFavorito = findViewById(R.id.boton_favorito);
     }
 
     public void getPlayer(){
@@ -119,6 +123,13 @@ public class ReproductorActivity extends AppCompatActivity {
         Intent intent = getIntent();
         datosCancion(intent);
 
+        if(Integer.parseInt(info[5]) == 1) {
+            listaCanciones = InicioFragment.listaCanciones;
+        } else {
+            listaCanciones = MainActivity.favorites;
+        }
+
+        appDatabase = AppDatabase.getDatabaseInstance(getApplicationContext());
 
         botonRepetir.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -167,10 +178,11 @@ public class ReproductorActivity extends AppCompatActivity {
                     isPlaying = true;
                 }
                 nextSong();
+                checkIfFavorite();
             }
         });
 
-        
+
         botonSiguiente.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -187,8 +199,62 @@ public class ReproductorActivity extends AppCompatActivity {
                 }
 
                 nextSong();
+                checkIfFavorite();
             }
         });
+
+
+        checkIfFavorite();
+
+
+        botonFavorito.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                new Thread(){
+                    public void run(){
+                        final int resultado = appDatabase.favoritasDao().verificarFavorito(listaCanciones.get(currentPosition).getId());
+
+                        if(resultado == 1) {
+                            appDatabase.favoritasDao().quitarFavorito(listaCanciones.get(currentPosition).getId());
+                        } else{
+                            appDatabase.favoritasDao().insertarFavorito(listaCanciones.get(currentPosition));
+                        }
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                if (resultado == 1) {
+                                    botonFavorito.setAlpha(0.3f);
+                                } else {
+                                    botonFavorito.setAlpha(1f);
+                                }
+                            }
+                        });
+                    }
+                }.start();
+            }
+        });
+
+    }
+
+    public void checkIfFavorite(){
+        new Thread(){
+            public void run(){
+                final int resultado = appDatabase.favoritasDao().verificarFavorito(listaCanciones.get(currentPosition).getId());
+
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        if (resultado == 1) {
+                            botonFavorito.setAlpha(1f);
+                        } else {
+                            botonFavorito.setAlpha(0.3f);
+                        }
+                    }
+                });
+            }
+        }.start();
     }
 
     public void datosCancion(Intent intent){
@@ -212,9 +278,13 @@ public class ReproductorActivity extends AppCompatActivity {
         // etc.
     }
 
+
+    //VERSION ORIGINAL
+
+
     public void playBackMusic() {
         try {
-            mediaPlayer = Helpers.getPlayer(getApplicationContext(),InicioFragment.listaCanciones.get(currentPosition).getLocalizacion());
+            mediaPlayer = Helpers.getPlayer(getApplicationContext(), listaCanciones.get(currentPosition).getLocalizacion());
             /*mediaPlayer.setAudioStreamType(AudioManager.STREAM_MUSIC);
             mediaPlayer.setDataSource(InicioFragment.listaCanciones.get(currentPosition).getLocalizacion());*/
             mediaPlayer.start();
@@ -229,7 +299,6 @@ public class ReproductorActivity extends AppCompatActivity {
                 }
             });
 
-
             barraProgresoCancion.setMax(mediaPlayer.getDuration());
             barraProgresoCancion.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
                 @Override
@@ -239,7 +308,6 @@ public class ReproductorActivity extends AppCompatActivity {
                         barraProgresoCancion.setProgress(progress);
                     }
                 }
-
                 @Override
                 public void onStartTrackingTouch(SeekBar seekBar) {
 
@@ -266,15 +334,15 @@ public class ReproductorActivity extends AppCompatActivity {
                 }
             } else{
 
-                    if (!isPlaying) {
-                        mediaPlayer.start();
-                        isPlaying = true;
-                        botonReproducir.setImageResource(R.drawable.ic_pause_button);
-                    } else {
-                        //mediaPlayer.pause();
-                        botonReproducir.setImageResource(R.drawable.ic_play_arrow);
-                        isPlaying = false;
-                    }
+                if (!isPlaying) {
+                    mediaPlayer.start();
+                    isPlaying = true;
+                    botonReproducir.setImageResource(R.drawable.ic_pause_button);
+                } else {
+                    //mediaPlayer.pause();
+                    botonReproducir.setImageResource(R.drawable.ic_play_arrow);
+                    isPlaying = false;
+                }
 
             }
 
@@ -293,10 +361,10 @@ public class ReproductorActivity extends AppCompatActivity {
             textoCancion = findViewById(R.id.nombre_cancion);
             textoArtista = findViewById(R.id.nombre_artista);
             textoAlbum = findViewById(R.id.nombre_album);
-            moveTextHorizontal(InicioFragment.listaCanciones.get(currentPosition).getTitulo());
+            moveTextHorizontal(listaCanciones.get(currentPosition).getTitulo());
             //textoCancion.setText(InicioFragment.listaCanciones.get(currentPosition).getTitulo());
-            textoArtista.setText(InicioFragment.listaCanciones.get(currentPosition).getCantante());
-            textoAlbum.setText(InicioFragment.listaCanciones.get(currentPosition).getAlbum());
+            textoArtista.setText(listaCanciones.get(currentPosition).getCantante());
+            textoAlbum.setText(listaCanciones.get(currentPosition).getAlbum());
             tiempoTotal = mediaPlayer.getDuration();
 
             new Thread(new Runnable() {
@@ -323,20 +391,20 @@ public class ReproductorActivity extends AppCompatActivity {
     }
 
     public void nextSong(){
-        int numOfSong = InicioFragment.listaCanciones.size();
+        int numOfSong = listaCanciones.size();
 
-            if (!isRepeating) {
-                Random rand = new Random();
-                int randomNumber = rand.nextInt(numOfSong);
-                while (randomNumber == currentPosition){
-                    randomNumber = rand.nextInt(numOfSong);
-                }
-                currentPosition = randomNumber;
-                currentSong = InicioFragment.listaCanciones.get(currentPosition);
-            } else {
-                currentSong = InicioFragment.listaCanciones.get(currentPosition);
+        if (!isRepeating) {
+            Random rand = new Random();
+            int randomNumber = rand.nextInt(numOfSong);
+            while (randomNumber == currentPosition){
+                randomNumber = rand.nextInt(numOfSong);
             }
-            playBackMusic();
+            currentPosition = randomNumber;
+            currentSong = listaCanciones.get(currentPosition);
+        } else {
+            currentSong = listaCanciones.get(currentPosition);
+        }
+        playBackMusic();
     }
 
     public void moveTextHorizontal(String texto){

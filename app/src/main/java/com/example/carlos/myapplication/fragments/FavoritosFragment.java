@@ -1,5 +1,6 @@
 package com.example.carlos.myapplication.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -8,8 +9,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.carlos.myapplication.Database.Entidades.Cancion;
+import com.example.carlos.myapplication.activities.MainActivity;
 import com.example.carlos.myapplication.adapters.FavoritosAdapter;
-import com.example.carlos.myapplication.objects.Cancion;
 import com.example.carlos.myapplication.R;
 
 import java.util.ArrayList;
@@ -22,30 +24,34 @@ public class FavoritosFragment extends Fragment {
 
     private View view;
     ArrayList<Cancion> listDatos;
-    RecyclerView recyclerViewNotificaciones;
+    static RecyclerView recyclerViewNotificaciones;
 
     public FavoritosFragment() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.recycler_view, container, false);
+        view = LayoutInflater.from(container.getContext()).inflate(R.layout.recycler_view, container, false);
 
-        listDatos = new ArrayList<>();
+
         recyclerViewNotificaciones = view.findViewById(R.id.recycler_view);
         recyclerViewNotificaciones.setLayoutManager(new LinearLayoutManager(getContext()));
 
-        llenarLista();
+        llenarLista(getContext());
 
-        FavoritosAdapter adapter = new FavoritosAdapter(listDatos);
+        FavoritosAdapter adapter = new FavoritosAdapter(getContext(),MainActivity.favorites);
         recyclerViewNotificaciones.setAdapter(adapter);
 
         return view;
     }
 
-    private void llenarLista() {
+    public static void llenarLista(Context context) {
 
-        listDatos.add(new Cancion("Título cancion", "Cantante", "Localización", "Album", "id Canción"));
+        if (recyclerViewNotificaciones != null) {
+            recyclerViewNotificaciones.setLayoutManager(new LinearLayoutManager(context));
+            FavoritosAdapter adapter = new FavoritosAdapter(context, MainActivity.favorites);
+            recyclerViewNotificaciones.setAdapter(adapter);
+        }
 
     }
 }

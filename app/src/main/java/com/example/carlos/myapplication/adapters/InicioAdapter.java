@@ -12,9 +12,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.carlos.myapplication.Database.Entidades.Cancion;
 import com.example.carlos.myapplication.activities.ReproductorActivity;
-import com.example.carlos.myapplication.objects.Cancion;
-import com.example.carlos.myapplication.objects.Inicio;
 import com.example.carlos.myapplication.R;
 
 import java.util.ArrayList;
@@ -49,7 +48,7 @@ public class InicioAdapter extends RecyclerView.Adapter<InicioAdapter.ViewHolder
                 intent.setAction(Intent.ACTION_SEND);
                 intent.setType("text/plain");
                 Toast.makeText(context, listDatos.get(position).getId(),Toast.LENGTH_SHORT).show();
-                intent.putExtra(Intent.EXTRA_TEXT,listDatos.get(position).getTitulo() + "-/" + listDatos.get(position).getCantante() + "-/" + listDatos.get(position).getLocalizacion() + "-/" + listDatos.get(position).getAlbum() + "-/" + position);
+                intent.putExtra(Intent.EXTRA_TEXT,listDatos.get(position).getTitulo() + "-/" + listDatos.get(position).getCantante() + "-/" + listDatos.get(position).getLocalizacion() + "-/" + listDatos.get(position).getAlbum() + "-/" + position + "-/" + "1");
                 context.startActivity(intent);
             }
         });

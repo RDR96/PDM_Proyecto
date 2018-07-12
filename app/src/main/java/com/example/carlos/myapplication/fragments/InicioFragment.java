@@ -19,10 +19,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 
+import com.example.carlos.myapplication.Database.Entidades.Cancion;
 import com.example.carlos.myapplication.adapters.InicioAdapter;
-import com.example.carlos.myapplication.objects.Cancion;
 import com.example.carlos.myapplication.objects.Helpers;
-import com.example.carlos.myapplication.objects.Inicio;
 import com.example.carlos.myapplication.R;
 
 import java.util.ArrayList;
@@ -116,7 +115,7 @@ public class InicioFragment extends Fragment {
                 String localizacionActual = cursor.getString(localizacionCancion);
                 String album = cursor.getString(albumCancion);
                 String id = cursor.getString(idCancion);
-                listaCanciones.add(new Cancion(tituloActual,artistaActual,localizacionActual,album, id));
+                listaCanciones.add(new Cancion(id, tituloActual, artistaActual,localizacionActual,album));
             }while(cursor.moveToNext());
         }
         setList();

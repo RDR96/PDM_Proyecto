@@ -12,12 +12,16 @@
         app:cardCornerRadius="8dp"
         android:elevation="8dp"
         app:cardUseCompatPadding="true"
+
         app:cardBackgroundColor="@color/cardview_light_background"
         android:layout_height="200dp">
 
         <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:id="@+id/item_cancion"
+            android:layout_height="match_parent"
+            android:padding="8dp"
+            >
 
 
             <ImageView

@@ -6,14 +6,20 @@ import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 
+import com.example.carlos.myapplication.Database.AppDatabase;
+import com.example.carlos.myapplication.Database.Entidades.Cancion;
+import com.example.carlos.myapplication.fragments.FavoritosFragment;
 import com.example.carlos.myapplication.fragments.ViewPager;
 import com.example.carlos.myapplication.R;
+
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     //Espacio de declaración de Variables y Objetos
     Fragment miFragment=null;
-
+    public static ArrayList<Cancion> favorites;
     //LifeCycle
 
     @Override
@@ -21,11 +27,28 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //TODO Implementar LOGIN
-         //login();
-         firstStart();
+        final AppDatabase appDatabase = AppDatabase.getDatabaseInstance(getApplicationContext());
+        favorites = new ArrayList<>();
+        new Thread(){
+            @Override
+            public void run() {
+                favorites = (ArrayList<Cancion>) appDatabase.favoritasDao().obtenerFavoritos();
+                Log.d("Longitud", String.valueOf(favorites.size()));
+
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        FavoritosFragment.llenarLista(getApplicationContext());
+                    }
+                });
+
+
+            }
+        }.start();
+
+        //login();
+        firstStart();
     }
-
-
     //Developer Methods
     private void firstStart() {
         inicializarControles();
@@ -34,6 +57,10 @@ public class MainActivity extends AppCompatActivity {
                 .beginTransaction()
                 .replace(R.id.container,miFragment)
                 .commit();
+    }
+
+    public void fillFavoritesFragment(){
+
     }
 
     private void  inicializarControles(){
